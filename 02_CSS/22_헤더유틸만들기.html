@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>헤더유틸만들기 로그인회원가입 </title>
+    <style>
+
+        div{
+            border : 1px solid red;
+        }
+        #header_3 {
+            width : 150px;
+            height : 160px;
+        }
+
+
+        /*-------------------------*/
+
+        #header_3{
+            display : flex;
+            align-items : center;
+            justify-content: flex-end;
+            padding-right: 12px;
+        }
+
+        #util {
+            display: flex;
+            flex-direction: column;
+        }
+        #util>a {
+            color : #6b6b6b;
+            text-decoration: none;
+
+            &:hover{
+                color : #1a1a1a;
+                font-weight : 600;
+            }
+        }
+
+    </style>
+
+
+</head>
+<body>
+    
+
+    <div id="header_3">
+        <div id="util">
+            <a href="#">회원가입</a>
+            <a href="#">로그인</a>
+            <a href="#">장바구니</a>
+        </div>
+    </div>
+
+</body>
+</html>

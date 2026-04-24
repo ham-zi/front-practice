@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>3번</title>
+
+    <style>
+
+        .float{
+            width : 100px;
+            height : 100px;
+            border : 1px solid rgb(71, 0, 0);
+            float : left;
+        }
+
+        body {
+            background: black;
+            color: white;
+        }
+
+        .test{
+            width: 150px;
+            height : 150px;
+            border-radius: 75px;
+        }
+
+        .red{
+            background: red;
+            /* display : none; 안ㅇ보임: 공간을 차지하지 않음 */
+            visibility : hidden; /* 안보임 : 공간을 차지함*/
+        }
+
+        .orange{
+            background: orange;
+        }
+
+        .green{
+            background: green;
+        }
+
+        #sinhodeung{
+            border: 1px solid white;
+            width : 150px;
+        }
+
+        .outer {
+            border: 1px solid rgb(34, 8, 8);
+            position : relative; /* 자식 요소들의 기준점이 됨*/
+            height : 600 px;
+
+        }
+        .position {
+            border: 1px solid yellow;
+        }
+
+        #p1{
+            width:300px;
+            height: 300px;
+            background-color: rgb(102, 255, 255);
+            position: absolute; /*기준점을 기준으로 배치하겠음* 완벽한 절대적인? */
+            left : 100px;
+            top : 10px;
+        }
+        #p2{
+            width:200px;
+            height:200px;
+            background: rgb(255, 143, 143);
+            position : absolute;
+            left : 150px;
+            top : 70px;
+            transform : rotate(10deg);
+        }
+        #p3{
+            width : 100px;
+            height : 100px;
+            background-color: rgb(155, 255, 155);
+            position : absolute;
+            left : 80px;
+            top : 90px;
+            transform : rotate(-20deg);
+        }
+
+        #fix {
+            position : fixed;
+            width: 170px;
+            height: 600px;
+            background-color: yellowgreen;
+            top: 60px;
+            right : 40px;
+        }
+
+
+        .z-test{
+            position : absolute;
+            width : 150px;
+            height : 150px;
+            border : 1px white;
+        }
+
+        #z1 {
+            background: lightgoldenrodyellow;
+            top: 100px;
+            left:100px;
+            z-index:1;
+
+        }
+
+        #z2 {
+            background-color: palegoldenrod;
+            top:50px;
+            left:50px;
+            z-index:2;
+        }
+        #z3 {
+            background : goldenrod;
+        }
+    </style>
+
+</head>
+<body>
+    
+    <h3>float</h3>
+    
+    <div class="float">1</div>
+    <div class="float">2</div>
+    <div class="float">3</div>
+    <div class="float">4</div>
+    <div class="float">5</div>
+    <br clear="both">
+        <h4>얼라라라라</h4>
+
+
+    <h1> 배치 해봅시다 </h1>
+
+    <div id="sinhodeung">
+        <div class="red test"></div>
+        <div class="orange test"></div>
+        <div class="green test"></div>
+    </div>
+
+    <hr>
+
+    <h3>position</h3>
+
+    <div class="outer">
+        <div class="position" id="p1">1번 요소</div>
+        <div class="position"id= "p2">2번 요소</div>
+        <div class="position"id ="p3">3번 요소</div>
+        <!-- 밑에 적힌 요소가 위로 쌓임-->
+    </div>
+
+    <br>
+
+    <div id="fix" >날따라와라</div>
+
+    <h3>z-index</h3>
+
+    <p>페이지안에 요소를 위로 쌓는 속성</p>
+
+    <div class="outer">
+        <div id="z1" class="z-test">요소1</div>
+        <div id="z2" class="z-test">요소2</div>
+        <div id="z3" class="z-test">요소3</div>
+    </div>
+    <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+</body>    
+</html>
+

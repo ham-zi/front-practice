@@ -1,0 +1,132 @@
+/* CSS 속성을 그냥 문서 전체에 기술할 수 있다. */
+
+/*1. 속성 선택자 */
+
+/* div 요소들 중 name 속성의 속성 값이 name1과 "일치"하는 요소만 선택 */
+div[name="name1"] {
+    color : skyblue;
+}
+
+/* div 요소들 중 name 속성의 속성 값이 name1이 "포함"되어 있는 요소를 선택  (~=)그레이브 */
+    /* 띄어쓰기 기준, 속성값이 온전하게 일치해야함 */
+div[name~="name1"] {
+    background-color : pink
+}
+
+/* div 요소들 중에서 class 속성 값에 i가 "포함"되어 있는 요소를 선택 *= */
+div[class*="i"] {
+    background-color : rgb(238, 220, 255)
+}
+
+/* div 요소들 중에서 class값이 div로 "시작"하는 요소를 선택 */
+    /* 시작이라는 의미가 '-' 대쉬바  */
+div[class|="div"] {
+    color : rgb(0, 16, 61)
+}
+
+/* div 요소들 중 name 속성 값이 name3으로 "시작"하는 요소를 선택 */
+div[name^="name3"] {
+    background-color: rgb(236, 172, 205);
+}
+
+/* div 요소들 중에서 class 속성 값이 ss로 "끝나는 요소들 선택" */
+div[class$='ss'] {
+    background-color: rgb(135, 135, 223);
+}
+
+/* class 속성 값이 div-class인 요소들 중에서
+    name속성값에 name3이 "포함"되어 있는 요소의 배경색 변경 */
+
+.div-class[name~="name3"] {
+    background-color: rgb(129, 38, 38);
+}
+
+
+/* 자식 & 후손 선택자 */
+
+/* id 속성 값이 test1인 요소의 자식들 중에서 ul요소들을 선택 */
+#test1 > ul {
+    color :aliceblue;
+    background-color: black;
+}
+
+#test1 li{
+    background-color: brown;
+}
+
+#test1 > ul > li{
+    color :aqua;
+}
+
+#li1 {
+    color: blue;
+}
+
+#first {
+    color: red;
+}
+
+/* 부모의 첫번째 자식 요소 선택 */
+#test1 :first-child{
+    color: rgb(59, 136, 93);
+}
+#tset1 > h5:last-child {
+    color:blueviolet;
+}
+
+/* a + b : a요소 바로 뒤 하나만 요소 선택하기 */
+
+#test2 + div {
+    background-color: lightcoral;
+}
+
+#test2 + ul {
+    color : red;
+}
+
+/* a ~ b : a요소 뒤에 있는 모든 b요소를 선택 */
+
+#test2 ~ ul {
+    color: red;
+}
+
+.area {
+    width: 100px;
+    height : 100px;
+    background-color: peachpuff;
+}
+
+/* active는 클릭하고 있는 동안에 활성화 */
+
+#active:active{
+    background-color: red;
+    cursor:pointer;
+}
+
+#hover:hover {
+    background-color: orangered;
+}
+
+
+/* 상태 선택자 */
+
+input[type="checkbox"]:checked {
+    width : 20px;
+    height : 20px;
+    font-size: 20px;
+}
+
+input[type="checkbox"]:checked + label {
+    font-size: 30px;
+}
+
+#input-el:focus{
+    background-color: aqua;
+}
+
+button:enabled {
+    color:blue;
+}
+button:disabled{
+    color:deeppink
+}

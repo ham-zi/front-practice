@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=, initial-scale=1.0">
+    <link rel="styleSheet" href="02_select.css">
+
+    <title>CSS </title>
+</head>
+<body>
+    <h1> 기타선택자 </h1>
+
+    <h2> 1. 속성 선택자 </h2>
+
+    h1 요소
+    h1의 여는 태그
+    h1의 닫는 태그
+    
+    >h1 요소의 컨텐트 영역<
+    
+    h1요소의 id속성값
+
+    <p>
+        스타일을 부여하려고 하는 요소에 작성되어 있는 속성을 방법
+        선택자 뒤에 []를 이용해서 속성과 속성값을 적어서 선택할 수 있음
+    </p>
+
+    .div-class[name=name$]{div$}*4
+    <div class="div-class" name="name1">div1</div>
+    <div class="div-class" name="name2">div2</div>
+    <div class="div-class" name="name3 name1">div3</div>
+    <div class="class-div" name="name4">div4</div>
+
+
+    <h2> 2. 자식선택자와 후손선택자 </h2>
+    <p>
+        자식 : 바로 하위 요소 <br>
+        후손 : 하위 요소들 전부 <br>
+    </p>
+
+    <pre>
+        - 자식 선택자
+        a > b {
+            스타일 속성 : 값;
+            ...
+        }
+
+        a b {
+            스타일 속성 : 값;
+            ...
+        }
+    </pre>
+
+    <div id="test1">
+        <ul> 이런 경우가
+            <li> 있습니다.</li>
+            <li> 흐흐흐 </li>
+            <h4>asdfasdf</h4>
+            <ol>
+                <li>wer123123</li>
+                <li>wer123123233</li>
+            </ol>
+            <h5>1</h5>
+            <h5 id="first">2</h5>
+            <h5>3</h5>
+            <h5>4</h5>
+            <h5>5</h5>
+        </ul>
+    </div>
+
+    <ul> 있어요
+        <li id="li1"> 많아요 </li>
+        <li> fasdfasdf</li>
+    </ul>
+
+
+
+    <pre>
+        - a요소 뒤에 있는 b요소 딱 하나만을 선택
+        a + b {
+            스타일 속성 : 값;
+            ...
+        }
+
+        - a요소 뒤에 있는 모든 b요소를 선택
+        a ~ b {
+            스타일 속성 : 값;
+            ...
+        }
+    </pre>
+
+    <div id="test2">div1</div>
+    <div>div2</div>
+    <ul>ul요소</ul>
+    <div>div3</div>
+    <div>div4</div>
+
+    <br><br>
+
+    <h3>4. 반응 선택자</h3>
+
+    <pre>
+        - 해당 요소를 클릭하고 있을 때
+        선택자 : active {
+            스타일 속성 : 값;
+        }
+
+
+        - 해당 요소(border)에 마우스커서가 올라가는 순간 선택자
+        선택자:hover {
+            스타일 속성 : 값;
+        }
+    </pre>
+
+    <div id="active" class="area"></div>
+    <br>
+    <div id="hover" class="area"></div>
+
+
+    <pre> 상태 선택자</pre>
+
+    #chk>(input+lable)*2
+    <div id="chk">
+        <input type="checkbox" id="wolf">
+        <lable for="wolf">늑대</lable>
+        <input type="checkbox" id="fox">
+        <lable for="fox">여우</lable>
+    </div>
+
+    fo
+
+    입력해보아요 ~ : <input type="text" id = "input-el">
+    <br>
+    
+    <button>버튼</button>
+    <button disabled>버튼</button>
+
+    <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+</body>
+</html>

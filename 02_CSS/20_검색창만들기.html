@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>검색창 만들기</title>
+
+    <style>
+        div, form{
+
+            box-sizing: border-box;
+        }
+
+        #header_2{
+            width : 650px;
+            height : 160px;
+        }
+
+
+        /*   --------------------------- */
+
+        #header_2{
+            display:flex;
+            align-items : center;
+            justify-content: center;
+        }
+
+
+        /* form 태그 */
+        #search-form {
+            width : 85%;
+            height: 44px;
+            display : flex;
+            padding : 4px;
+            background-color: rgb(250, 250, 250);
+            border-radius: 13px;
+        }
+        #search-text {
+            flex : 7.5;
+        }
+        #search-btn {
+            flex : 1.5;
+        }
+
+        #search-text>input {
+            width:100%;
+            height:100%;
+            box-sizing: border-box;
+            border: none;  
+            padding: 0 15px;
+            color: rgb(17, 17, 17);
+            /*outline 촌스러움*/
+            &:focus {
+                outline : #eeeeee;
+            }
+        }
+
+        #search-btn>button {
+            width: 100%;
+            height : 100%;
+            border-radius: 18px;
+            background-color: #1a1a1a;
+            color : #fafafa;
+            font-weight : 600;
+
+            &:hover {
+                background-color : #fafafa;
+                color: #1a1a1a;
+                cursor:pointer;
+            }
+        }
+    </style>
+
+</head>
+<body>
+    <div id="header_2">
+        <form action="search" method="get" id="search-form">
+            <div id="search-text">
+                <input type="text" name="query" placeholder="검색어를 입력">
+            </div>
+            <div id="search-btn">
+                <button>검색하기</button>
+            </div>
+        </form>
+    </div>
+    
+</body>
+</html>

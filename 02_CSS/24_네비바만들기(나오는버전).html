@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>네비바 나오는버전</title>
+
+<style>
+
+    nav, ul ,li {
+        border : 1px solid red;
+        box-sizing: border-box;
+    }
+    nav {
+        width : 1000px;
+        height : 40px;
+
+    }
+
+
+
+    /*----------------------------------*/
+
+    #navbar {
+        margin : 0;
+        padding : 0;
+        list-style: none;
+        height : 100%;
+        font-family : 궁서체;
+    }
+
+    #navbar > li {
+        float : left;
+        height : 100%;
+        width : 16%;
+        text-align: center;
+    }
+
+    #navbar  > li a{
+        text-decoration: none;
+        color : #1a1a1a;
+        line-height: 40px;
+        font-weight : 800px;
+        width : 100%;
+        height : 100%;
+        display : block;
+    }
+
+    #navbar > li > ul {
+        list-style: none;
+        padding : 0px;
+        display : none;
+    }
+
+    #navbar > li > a:hover + ul {
+        display : block;
+    }
+
+    #navbar > li > ul:hover {
+        display : block;
+    }
+
+    #navbar > li > ul a:hover{
+        background-color: antiquewhite;
+    }
+
+    
+    </style>
+</head>
+<body>
+    
+    <nav>
+        <ul id="navbar">
+            <li><a href="#">단과반</a>
+                <ul>
+                    <li><a href="#">JAVA</a></li>
+                    <li><a href="#">SQL</a></li>
+                    <li><a href="#">JDBC</a></li>
+                </ul>
+            </li>
+            <li><a href="#">자격증대비반</a>
+                <ul>
+                    <li><a href="#">정보처리기사</a></li>
+                    <li><a href="#">정보보안기사</a></li>
+                </ul>
+            </li>
+            <li><a href="#">커뮤니티</a></li>
+            <li><a href="#">문의하기</a></li>
+            <li><a href="#">포트폴리오</a></li>
+        </ul>
+    </nav>
+
+</body>
+</html>

@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        div, header, nav, main, footer {
+            border : 1px solid red;
+            box-sizing : border-box;
+        }
+
+        #wrap {
+            width : 1000px;
+            height : 800px;
+            margin : auto;
+
+            display : flex;
+            flex-direction: column;
+        }
+
+        header {
+            flex : 2;
+            display : flex;
+        }
+
+        
+        nav {
+            flex :0.5;
+        }
+        
+        main {
+            flex :5.5;
+            display : flex;
+        }
+        
+        footer {
+            flex : 2;
+        }
+        
+
+
+        #header_1 {
+            flex : 2;
+        }
+
+        #header_2 {
+            flex : 6.5;
+        }
+
+        #header_3 {
+            flex : 1.5;
+        }
+
+        #content_1 {
+            flex : 1.5;
+        }
+        #content_2 {
+            flex : 6;
+        }
+        #content_3 {
+            flex : 2.5;
+        }
+
+    </style>
+
+</head>
+<body>
+    
+
+    <div id="wrap">
+        <header>
+            <div id="header_1"></div>
+            <div id="header_2"></div>
+            <div id="header_3"></div>
+        </header>
+        <nav></nav>
+        <main>
+            <div id="content_1"></div>
+            <div id="content_2"></div>
+            <div id="content_3"></div>
+        </main>
+        <footer></footer>
+    </div>
+
+</body>
+</html>

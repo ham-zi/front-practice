@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=, initial-scale=1.0">
+    <title>화면 구조 잡기</title>
+
+    <style>
+        #wrap, header, nav, main, footer {
+            box-sizing: border-box;
+            border : 1px solid red;
+
+        }
+        #wrap{
+            width : 1000px;
+            height : 800px;
+            border : 1px solid red;
+            margin : auto;
+            display : flex;
+            flex-direction: column;
+        }
+
+        header {
+            flex : 1.5;
+            display : flex;
+        }
+        nav {
+            flex : 0.5;
+        }
+        main {
+            flex : 6;
+        }
+
+        footer {
+            flex : 2;
+        }
+
+        #header_1{
+            flex : 1.5;
+        }
+
+        #header_2{
+            flex : 6;
+            border : 1px solid red;
+        }
+        #header_3{
+            flex : 2.5;
+        }
+        
+    </style>
+
+    <link rel="stylesheet" href="footer.css">
+    <link rel="stylesheet" href="searchform.css">
+    <link rel="stylesheet" href="logo.css">
+
+
+</head>
+<body>
+
+    <div id="wrap">
+        <header>
+            <div id="logo">
+                <a href="#" id="logo_1">햇살<span id="logo_2">마켓</span></a>
+            </div>
+            <div id="header_2">
+                <form action="search" method="get" id="search_form">
+                    <div id="search_text">
+                        <input type="text" name="query" placeholder="검색어를 입력">
+                    </div>
+                    <div id="search_btn">
+                        <button>검색하기</button>
+                    </div>
+                </form>
+            </div>
+            <div id="header_3"></div>
+        </header>
+        
+        <nav></nav>
+        
+        <main>
+            <div id="content_1"></div>
+            <div id="content_2"></div>
+            <div id="content_3"></div>
+        </main>
+        
+        <div id="footer">
+            <ul id="footer_ul">
+                <li>
+                    <a href="#">이용 약관</a>
+                </li>
+                <li>
+                    <a href="#">개인정보처리방침</a>
+                </li>
+                <li>
+                    <a href="#">고객센터 문의</a>
+                </li>
+                <li>
+                    <a href="#">게시 문의</a>
+                </li>
+                <li>
+                    <a href="#">인재채용 문의</a>
+                </li>
+            </ul>
+            <div id="footer_p">
+                <p id="p_1">
+                    햇살마켓 ｜ 대표자 : 이다산 ｜ 책임자 : 이다산 ｜  개인정보관리책임자 : 이다산
+
+                </p>
+                <p id="p_2">
+                    Copyright ©2026 SunshineMacket Class All Right Reserved
+
+                </p>
+            </div>
+        </div>
+    </div>
+    
+</body>
+</html>

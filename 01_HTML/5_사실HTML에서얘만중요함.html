@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=, initial-scale=1.0">
+    <title>***입력 양식 및 폼 관련 태그***중요</title>
+</head>
+<body>
+    <h1>아~주 중요한 입력 양식!</h1>
+    <!--
+        <input> : 사용자에게 값을 입력 받을 수있는 텍스트 상자를 만드는 태그 : 요청 보낼 때 전달 값 역할
+            -> type 속성 : 입력 양식의 종류를 결정하는 속성
+                1. text : 한 줄 텍스트 입력 양식
+                1-1. textArea : 여러줄 텍스트 입력 양식
+                2. password : 비밀번호 입력 양식
+                3. checkbox : 체크박스 입력 양식
+                4. radio : 라디오 버튼 입력 양식
+                5. submit : 제출 버튼 입력 양식
+                6. reset : 초기화 버튼 입력 양식
+                7. button : 일반 버튼 입력 양식
+            -> name 속성 : 쿼리의 전달 식별값
+        <textarea> : 여러 줄 텍스트 입력 양식을 만드는 태그
+
+        <select> : 드롭다운 목록을 만드는 태그
+            -> <option> 태그와 함께 사용하여 선택 항목을 정의
+
+        <form> : 입력양식이라는 의미, 입력 양식을 감싸는 태그
+            -> action 속성(필수) : 폼이 제출될 때 데이터를 보낼 URL을 지정하는 속성 : 현재 요청 값을 받아줄 서버
+            -> method 속성(권장) : 폼이 제출될 때 사용할 HTTP 메서드를 지정하는 속성 (GET, POST 등)
+            
+            *action : form안에 사용자가 입력한 값들을 
+            전달하면서 요청을 보낼 URL을 작성
+            *method : 요청 전송방식을 지정하는 속성(GET/POST)
+
+            form태그 내부에 존재하는 submit 버튼을 클릭 시
+            action 속성에 작성한 서버의 경로로
+            method 속성에 작성한 요청 방식을 통해
+            사용자가 input요소에 입력한 값들을 key=value형태로 전달
+
+
+            form태그 내부에 위치한 submit을 클릭시
+            해당 form태그에 작성한 사용자가 입력한 값들을
+            요청을 받아주는 서버로 넘기면서 요청을 보냄
+            form 태그 & submit버튼
+
+            post 방식 : 사용자가 입력한 값들이 HTTP 메시지의 body에 담겨서 전달
+
+            filedset : 그룹 묶을 때 사용 : 영역을 나눠주는 태그
+            legend : 묶은 그룹에다가 제목을 붙여주는 태그
+
+            (당분간)method속성
+            select => get
+            insert/update/delete => post
+
+            추후 추가 예정
+
+            name을 안적으면 아무 의미없는 input이 된다(전달이 안됨)
+
+
+            required : 필수 입력 사항
+            placeholder : 입력 유도 꾸밈 요소
+            name : 요청 시 key값, 의미를 부여해서 짓기
+            <form태그 내부에 input요소 작성 시 무조건 name속성을 작성해라!!!!
+            !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+            !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+        예)
+    -->
+        <label>동물 이름을 입력하세요 > </label>
+        <input type="text" placeholder="최대 15자 이내로 입력"/>
+        <button>확인</button>
+
+        <br>
+        아이디 : <input type="text"> <br>
+        비밀번호 : <input type="password"> <br>
+        <input type="submit">
+        <h2> Form 태그</h2>
+
+        <form action="https://search.naver.com/" method="get">
+            키워드 : <input type="text" name="keyword"> <br>
+            <input type="submit"/>
+        </form>
+
+        <form action="example" method="post">
+            아이디 : <input type="text" name="id" />
+            비밀번호: <input type="password" name="pw" />
+
+
+        </form>
+
+        <form action="legend">
+
+            <fieldset>
+                <legend>회원가입 양식</legend>
+                아이디 : <input type="text" name="id" /> <br>
+                비밀번호 : <input type="password" name="pw" /> <br>
+            </fieldset>
+        </form>
+
+        <h4>다양한 input요소의 type속성값 알아보자</h4>
+
+        <form action="마음대로">
+
+            <h5>type = "text"</h5>
+            <p> 한 줄 텍스르를 입력할 수 있는 상자(기본값)</p>
+            아이디 : <input type="text" 
+                            placeholder="꼭쓰세요"
+                            >
+            <br><br>
+
+            <h5>type = "password"</h5>
+            <p> 비밀번호를 입력할 수 있는 상자</p>
+            비밀번호 : <input type="password" 
+                                placeholder="8이내로 입력"
+                                maxlength="8"
+                                name="pwd">
+            <br><br>
+
+            <h5>type = "search/url/email/phone"</h5>
+            검색 : <input type="search"> <br>
+            url : <input type="url" /> <br> 
+            email : <input type="email"/> <br>
+            phone : <input type="phone"/> <br>
+            <br><br>
+            <input type="submit"/>
+        </form>
+
+
+        <h4> textarea 요소 </h4>
+        <form action="서버주소">
+            <fieldset>
+                <legend>게시글작성서비스입니다.</legend>
+                제목 : <input type="text" name="title"> <br>
+                내용 : <br>
+                <textarea name="content"></textarea>
+                <br>
+                <input type="submit" value="글작성">
+            </fieldset>
+        </form>
+
+            <h4>숫자 관련 type들</h4>
+
+            <form action="서버주소">                
+            <h5>type = "number"</h5> <br>
+            나이 : <input type="number"
+                        name="age">
+            <br>
+
+            수량 :
+            <input type="number" name="amount" value="0" min="0" max="20" step="5">
+
+            <input type="submit"/>
+
+            <input type="range"
+                   name="highPrice"
+                   min="0"
+                   max="1000000"
+                   step="50000">
+        </form>
+
+        
+        
+        <hr>
+
+        <h4> 날짜 및 시간과 관련된 input 요소의 type들</h4>
+
+        <form action="date">
+            <h5>type = "date"/month/week/time/datetime-local</h5>
+
+            date : <input type="date" name="date"> <br>
+            <!--  연도, 월, 일-->
+            month : <input type="month" name="month"> <br>
+            <!-- 연도, 월-->
+            week : <input type="week" name="week"> <br>
+            <!-- 연도, 주-->
+            time : <input type="time" name="time"> <br>
+            <!-- 오전/오후, 시간, 분-->
+            datetime-local : <input type="datetime-local" name="datetime"> <br>
+            <!-- 연도, 월, 일, 오전/오후 시간, 분-->
+            
+            submit타입 <button>입력</button> <br>
+            버튼타입 <button type="button">입력</button>
+            <!-- button 위치가
+                 form태그 내부에 존재하면
+                 기본타입이 submit타입으로 변경-->
+        </form>
+        
+        <button>입력</button>
+
+        <hr>
+        <h4> radio button과 checkbox</h4>
+        <form action="checked">
+            <h5>ridio butoon(type="radio")</h5>
+
+            <p>
+                -여러 개의 선택지들 중에서 딱 한 개만 선택하게 하고 싶을 때 <br>
+                -name속성 값이 똑같은 것들 끼리 하나의 그룹으로 묶음 <br>
+                - 제출 시 현재 선택된(checked) value가 넘어감
+            </p>
+
+            투숙객 평가 점수 : <br>
+
+            <input type="radio" name="review" value="9"> 9+최고 <br>
+            <input type="radio" name="review" value="8"> 8+우수 <br>
+            <input type="radio" name="review" value="7"> 7+좋음 <br>
+            <hr>
+
+            <h5>type = "checkbox"</h5>
+
+            <p>
+                -여러 개의 선택지들 중에서 여러 개를 선택하게 하고 싶을 때
+                -넘기고자 하는 값을 value 속성 값으로 작성해야함
+            </p>
+            
+            객실 편의 시설 / 서비스 feat label <br><br>
+
+            <input type="checkbox" name = "service" value="에어컨" id="에어컨"> <label for="에어컨"> 에어컨 </label><br>
+            <input type="checkbox" name = "service" value="TV" id="TV"> <label for="TV"> TV </label> <br>
+            <input type="checkbox" name = "service"value="mini-bar"> 미니바 <br>
+
+
+            <input type="submit">
+        </form>
+
+
+
+
+        <hr>
+        <h4> 기타 등등 ... </h4>
+
+        <form action="etc">
+            <h5>type = "color"</h5>
+            <p>
+                색상을 선택할 수 있는 type <br>
+                골라골라 <input type="color">
+            </p>
+
+            <h5> type = "file"</h5>
+            <p>
+                첨부파일을 선택할 수 있는 type <br>
+                첨부파일 : <input type="file">
+            </p>
+
+            <h5> type = "hidden"</h5>
+            <p>
+                숨겨진 입력 양식 <br>
+                사용자에게는 보이지 않지만, 서버로 값을 전달할 때 사용
+            </p>
+            <input type="hidden" name="hidden" value="50">
+
+            <h4> 버튼만들기</h4>
+            <form action="button">
+
+                - type : "submit", "reset", "button" <br>
+                <input type="submit">
+                <input type="reset">
+                <input type="button" value="클릭">
+
+                <input type="text">
+                실제 버튼이 필요할 때는 버튼 요소를 사용하자!
+
+            </form>
+
+            <input type="submit">
+        </form>
+
+        <hr>
+
+        <h4> select와 option 요소</h4>
+
+        <p>
+            - 사용자에게 키보드로 직접 입력 받는 것이 아니라
+            제시한 여러 개의 옵션 중에서 한 가지만 선택하게 끔
+            해주는 역할 <br>
+            - 제출 시 현재 선택된(selected ) 값이 넘어감 <br>
+            - 각각의 option 요소의 value를 기술 했을 때 value값이 전달,
+            value값이 없다면 content영역의 값이 전달됨
+        </p>
+
+        <form action ="요청보낼URL">
+
+            색상선택:
+            <select name="color">
+                <option value="1">rsdfasdfasdfed</option>
+                <option value="2">blasdfasdfue</option>
+                <option value="3">blasdfasdfaack</option>
+                <option value="green">green</option>
+            </select>
+
+
+            <br><br>
+
+            <h5>datalist</h5>
+            색상 : <input type="text" list="colors">
+            <datalist id="colorList">
+                <option value="red">
+                <option value="green">
+                <option value="blue">
+            </datalist>
+            <button>요청보내기</button>
+
+
+        </form>
+
+        url이란?
+        uniform resource Loactor의 약자
+
+        https                   : 프로토콜      => 어떤 규칙으로 통신할지
+        ://                     : 구분자
+        kh.acdemy.co.kr         : 도메인        => 어느 서버인지 (IP주소 대체)
+        (:443) 생략              : 포트번호      => 서비스가 무엇인가?
+        /project/classView.kh   : 경로(매핑값)  => 서버에서 어떤 자원인지
+        ?no=1255&capge=1        : 쿼리스트링    => 요청 시 전달값
+
+</body>
+</html>

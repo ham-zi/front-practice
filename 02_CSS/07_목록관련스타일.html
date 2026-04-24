@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=, initial-scale=1.0">
+    
+    <title>목록관련스타일</title>
+
+    <style>
+
+        #ul1 {
+            /*margin0,padding 0 list-style:none 3종 세트*/
+            list-style : none; 
+            padding : 0;
+            margin : 0;
+            display : flex;
+        }
+
+        #ul2 {
+            list-style-image : url(https://search.pstatic.net/common/?src=http%3A%2F%2Fblogfiles.naver.net%2FMjAyNTA4MTFfMjI1%2FMDAxNzU0ODc1Mzc5OTc5.VifRJdbeHhLz8P2Npy7JtEmuRgGHcgFeI3VQ79Acazgg.WkGDMvW-PKzsAin9BVsvneR_y7T1_S1f2W3lrw3SC7Qg.JPEG%2F%25BB%25A9%25B2%25C4.jpg&type=a340);
+            list-style-position: inside;
+        }
+
+
+    </style>
+</head>
+<body>
+    
+
+    <h1> 리스트 </h1>
+
+    <h3> list - style - type : 불릿기호 변경 </h3>
+
+    <pre>
+        ul 많은 경우 ul > li
+        선택자 {
+            list-style : disc / circle / square / none;
+        }
+
+        ol 있다는것만 알아라
+        선택자 {
+            list-style : decimal(십진수), lower-roman, upper-roman(로마숫자)
+            lower-alpha, upper-alpha (알파벳) 
+        }
+    </pre>
+
+
+    <ul id="ul1">
+        <li>1</li>
+        <li>2</li>
+        <li>3</li>
+    </ul>
+
+    <ul id="ul2">
+        <li>4</li>
+        <li>5</li>
+        <li>6</li>
+    </ul>
+
+</body>
+</html>

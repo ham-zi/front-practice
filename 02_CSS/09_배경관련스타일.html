@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>background</title>
+
+    <style>
+        body{
+            background-color: rgb(10, 8, 8);
+            color : brown;
+        }
+
+        #bg-color {
+            border : 50px solid plum;
+            padding : 30px;
+            background-color : lemonchiffon;
+            width : 50%;
+            /*div요소의 콘텐트영역의 가로길이를 부모요소의 50%로 지정*/
+            box-sizing : border-box;
+            /*가로길이 설정을 border영역까지 포함하는 속성*/
+        }
+
+
+        #bg-image{
+            border : 1px solid red;
+            width : 70%;
+            height : 800px;
+            background-image: url(https://search.pstatic.net/common/?src=http%3A%2F%2Fblogfiles.naver.net%2FMjAyNTEyMTNfMjg4%2FMDAxNzY1NTcwMTIyNzcz.XoPFakF5QvScb1W6DpW_hkpHixphbsUck8bpgdCx45Ug.Ub2EhccG8cD8BJOK7GcLCVf0pl5a-pkS1eBMDN6l_E4g.PNG%2F10.png&type=a340);
+            background-repeat: no-repeat;
+            background-position: center;
+            background-size : auto;
+            background-attachment: scroll;
+        }
+
+        .test{
+            border : 10px dashed rgb(238, 91, 91);
+            margin:40px;
+            padding:40px;
+            background-color : rgb(85, 8, 8);
+        }
+
+        #div1 {
+            background-clip : border-box;
+        }
+        #div2 { 
+            background-clip : padding-box;
+
+        }
+        #div3 {
+            background-clip: content-box;
+        }
+    </style>
+</head>
+<body>
+    <h1> 배경관련 스타일 </h1>
+
+    <h3>background-color : 배경색을 지정하는 속성 -> background의 하위속성</h3>
+
+    <div id="bg-color">7분 있으면 쉬는 시간</div>
+
+    <h3>
+        배경으로 이미지 넣기
+    </h3>
+
+    <pre>
+        선택자 {
+            background-image : url(이미지 경로);
+            background-repeat : repeat / repeat-x / repeat-y / no-repeat
+            background-size : auto / contain / over / 숫자(%)
+            background-prosition : left / right / center;
+                                    top / center / bottom;
+            background-attackment : scroll / fixed;
+        }
+    </pre>
+
+    <div id="bg-image"></div>
+
+    <hr>
+
+    <h3>background-clip : 배경범위 지정</h3>
+
+    <div id="div1" class="test">
+        나를 죽이지 못한 고통은 나를 더욱 강하게 만든다
+    </div>
+
+    <div id="div2" class="test">
+        나를 죽이지 못한 고통은 나를 더욱 강하게 만든다
+    </div>
+
+    <div id="div3" class="test">
+        나를 죽이지 못한 고통은 나를 더욱 강하게 만든다
+    </div>
+    
+    <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+</body>
+</html>

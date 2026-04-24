@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>구조잡기 연습</title>
+    <!-- 구조먼저 잡기 
+        모든요소의 길이를 명확하게 지정해야한다
+        box-sizing으로 content영역기준으로 박스사이징해줌 ->  구역을 깔끔하게 정리
+    -->
+    <style>
+        div{
+            border : 1px solid red;
+            box-sizing : border-box;
+        }
+
+        #wrap{
+            width : 1000px;
+            height : 800px;
+            margin : auto;
+        }
+
+        #wrap > div {
+            width : 100%;
+        }
+
+        #header, #footer {
+            height : 25%;
+        }
+
+        #main {
+            height : 50%;
+        }
+
+    </style>
+
+
+</head>
+<body>
+    
+    <div id="wrap">
+        <div id="header"></div>
+        <div id="main"></div>
+        <div id="footer"></div>
+    </div>
+
+</body>
+</html>

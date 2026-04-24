@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=, initial-scale=1.0">
+    <title>권장방법</title>
+
+    <style>
+
+        .container {
+            border : 3px solid lightgray;
+            padding : 20px;
+            background-color: lightskyblue;
+            width: 1200px;
+
+        }
+
+        .red {
+            background-color:  red;
+        }
+
+        .blue {
+            background: blue;
+        }
+
+        .green {
+            background: green;
+        }
+
+        .box{
+            padding :20px;
+            text-align: center;
+            font-weight : bold;
+            color : yellow;
+        }
+
+
+
+    </style>
+
+</head>
+<body>
+
+    <h1>div를 가로로 배치시켜보자
+
+    </h1>
+    <pre>
+        선택자 {
+            display : flex;
+        }
+        flex를 적용하면 자식요소들이 가로방향으로 정렬됨
+    </pre>
+    
+    <div class="container" style="display :flex">
+        <div class="box red" style="flex-grow: 1">나는 3번</div>
+        <div class="box blue" style="flex-grow: 2">나는 3번</div>
+        <div class="box green" style="flex-grow: 1">나는 3번</div>
+    </div>
+
+
+    <pre>
+        선택자 {
+            flex-direction: column;
+        }
+        요소들을 다시 세로방향으로 쌓을 수 있음
+    </pre>
+    <div class="container" style = "display: flex-direction; flex-direction: column">
+        <div class="box red" >나는1번</div>
+        <div class="box green">나는2번</div>
+        <div class="box blue">나는3번</div>
+    </div>
+    
+    <pre>
+        요소들을 정렬해보기
+        justify-content
+        flex-start : 왼쪽정렬 / center : 중앙정렬 / flex-end : 오른쪽 정렬됨
+        space-around : 요소들 사이사이에 동일한 공간 배분
+        space-evenly : 모든 간격을 동일하게
+    </pre>
+    <div class="container" style = "display: flex; justify-content:center; height:400px; align-items: center; ">
+        <div class="box red" style="order :3">나는1번</div>
+        <div class="box green" style="order :2">나는2번</div>
+        <div class="box blue" style="order :1">나는3번</div>
+        <div class="box blue" style="order :1">나는3번</div>
+    </div>
+
+
+    <pre>
+        수직정렬
+        align-items
+        stretch : 부모요소 높이에 맞춤 (기본값)
+        baseline : 텍스트에 맞춤
+    </pre>
+
+
+
+    <style>
+
+        #contain{
+            width:1200px;
+            margin:auto;
+            background-color: green;
+                        position : relative;
+
+        }
+
+        #item{
+            background-color: yellow;
+            width:900px;
+            height : 20%;
+            position : absolute;
+            top:0px;
+            bottom:0px;
+            left: 0px;
+            right: 0px;
+            margin : auto;
+        }
+
+        #item > div{
+            box-sizing : border-box;
+            width : 33%;
+            display:inline-block;
+
+        }
+
+    </style>
+
+    <h5> 쉽지 않다 </h5>
+    <div id="contain">
+        <div id="item">
+            <div class="box">나는1번</div>
+            <div class="box">나는2번</div>
+            <div class="box">나는3번</div>
+        </div>
+    </div>
+
+    
+
+</body>
+</html>

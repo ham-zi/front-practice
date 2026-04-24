@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>레이아웃관련 스타일 1번</title>
+
+    <style>
+        .size-test{
+            border : 10px solid brown;
+            height : 200px; 
+            background-color :black
+        }
+
+        #test1 {
+            width: 40%;
+
+        }
+
+        #test2 {
+            width: 400px;
+        }
+
+        .nemo{
+            width:150px;
+            height:150px;
+            border: 1px solid black;
+        }
+
+        .red{
+            background-color:  red;
+        }
+
+        .orange {
+            background : orange
+        }
+
+        .orangered {
+            background-color: orangered;
+        }
+
+        .cyan {
+            background-color: cyan;
+        }
+
+        .forestgreen {
+            background-color: forestgreen;
+        }
+
+        .inline{
+            display : inline;
+        }
+        .ib {
+            display : inline-block;
+        }
+
+    </style>
+
+
+</head>
+<body>
+
+    <!--
+        블럭 요소 : 한 줄 단위로 영역이 잡힘
+        인라인 요소 : content크기만큼만 영역이 잡힘
+    -->
+
+    <h3>width, heighr</h3>
+    <p>content 영역의 크기를 조절하는 속성</p> 
+
+    <div id="size">
+        <div id="test1" class="size-test"></div>
+        <div id="test2" class="size-test"></div>
+    </div>
+
+    <h2> display : 화면 배치 방법 변경</h2>
+
+    <pre>
+            선택자 {
+                display : block / inline-block / hidden / flex 
+                     비주류: inline / table-cell/...
+
+
+                     display : inline은 width, height속성이 적용
+            }
+    </pre>
+
+
+    <p>기본!</p>
+    <div class="nemo red">1</div>
+    <div class="nemo cyan">2</div>
+    <div class="nemo orange">3</div>
+    <div class="nemo forestgreen">4</div>
+    <div class="nemo orangered">5</div>
+    <hr>
+
+     <div class="nemo inline red">1</div>
+    <div class="nemo inline cyan">2</div>
+    <div class="nemo inline orange">3</div>
+    <div class="nemo inline forestgreen">4</div>
+    <div class="nemo inline orangered">5</div>
+    <hr>
+    <!-- 공백문자 없애는 방법 -->
+     <div class="nemo ib red">1</div><!--
+     --><div class="nemo ib cyan">2</div
+        ><div class="nemo ib orange">3</div>
+    <div class="nemo ib forestgreen">4</div>
+    <div class="nemo ib orangered">5</div>
+    <hr>
+    
+
+    <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+</body>
+</html>

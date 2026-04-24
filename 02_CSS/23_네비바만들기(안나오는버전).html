@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>네비바는 보통 list가지고 만든다</title>
+
+
+    <style>
+        nav, ul, li {
+            border : 1px solid red;
+            box-sizing:border-box;
+        }
+
+
+        /*-------------------------*/
+        nav {
+            border-top : 1px solid #eeeeee;
+            border-bottom :1px solid #eeeeee;
+        }
+
+        #navbar {
+            margin : 0;
+            padding : 0;
+            list-style : none;
+            height : 100%;
+            display : flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        #navbar > li {
+            padding : 0 32px;
+        }
+
+        #navbar > li > a {
+            font-size : 14px;
+            font-weight : 600;
+            color : #1a1a1a;
+            text-decoration: none;
+            letter-spacing: 1px;
+
+            &:hover {
+                color: #bb0000;
+            }
+        }
+
+    </style>
+
+
+</head>
+<body>
+
+    <nav>
+        <ul id="navbar">
+            <li><a href="#">단과반</a></li>
+            <li><a href="#">자격증대비반</a></li>
+            <li><a href="#">커뮤니티</a></li>
+            <li><a href="#">문의하기</a></li>
+            <li><a href="#">포트폴리오</a></li>
+        </ul>
+    </nav>
+</body>
+
+</html>

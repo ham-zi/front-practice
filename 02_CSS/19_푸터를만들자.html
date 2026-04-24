@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>푸터</title>
+
+    <style>
+
+        footer, div, p {
+            box-sizing: border-box;
+        }
+
+        footer {
+            width : 1000px;
+            height : 160px;
+        }
+
+        
+
+        /*밑에만 가져갈 예정*/
+
+        footer {
+            background-color : #f9f9f9;
+            padding : 20px 30px;
+            display : flex;
+            flex-direction: column;
+        }
+
+        #footer_1 {
+            border-bottom : 1px solid rgb(219, 219, 219);
+            background : rgb(240, 237, 237)
+        }
+
+        #footer_1 > a {
+            color : rgb(17, 17, 17);
+            text-decoration : none;
+            border-right : 1px solid rgb(199, 199, 199);
+            margin-right : 16px;
+            padding-right : 15px;
+            font-size : 13px;
+            font-weight:600;
+            line-height: 30px;
+
+            &:hover {
+                color : rgb(161, 0, 0);
+            }
+        }
+
+        #footer_1 > a:last-child {
+            border-right : none;
+        }
+
+        #footer_2 p{
+            margin : 0;
+        }
+
+        #p_1{
+            font-size: 12px;
+            color : rgb(32,32,32);
+            padding-top : 12px;
+            padding-bottom : 8px;
+        }
+        #p_2{
+            font-size: 11px;
+            color : rgb(84,84,84);
+            padding :8px;
+        }
+
+    </style>
+
+</head>
+<body>
+    
+    <footer>
+        <div id="footer_1">
+            <a href="#">이용약관</a>
+            <a href="#">개인정보처리방침</a>
+            <a href="#">인재 채용 문의</a>
+            <a href="#">훈련비 게시</a>
+            <a href="#">강사 구인</a>
+        </div>
+
+
+        <div id="footer_2">
+            <p id="p_1">
+                종로 501 강의실 ｜ 대표자 : 이다산 ｜ 책임자 : 이다산 ｜  개인정보관리책임자 : 이다산
+
+            </p>
+            <p id="p_2">
+                Copyright ©2026 KH501 Class All Right Reserved
+
+            </p>
+        </div>
+
+
+    </footer>
+
+</body>
+</html>

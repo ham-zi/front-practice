@@ -8,13 +8,13 @@
     <style>
         #wrap, header, nav, main, footer {
             box-sizing: border-box;
-            border : 1px solid red;
+
 
         }
         #wrap{
             width : 1000px;
-            height : 800px;
-            border : 1px solid red;
+            height :1200px;
+;
             margin : auto;
             display : flex;
             flex-direction: column;
@@ -28,7 +28,12 @@
             flex : 0.5;
         }
         main {
-            flex : 6;
+            flex : 12;
+            display : flex;
+            flex-direction: column;
+        }
+
+        main > div {
         }
 
         footer {
@@ -36,22 +41,37 @@
         }
 
         #header_1{
-            flex : 1.5;
+            flex : 2;
         }
 
         #header_2{
             flex : 6;
-            border : 1px solid red;
         }
         #header_3{
-            flex : 2.5;
+            flex : 2;
         }
         
+        #content_1{
+            flex : 2;
+        }
+        
+        #content_2{
+            flex : 2;
+        }
+        
+        #content_3{
+            flex : 2;
+        }
     </style>
 
     <link rel="stylesheet" href="footer.css">
     <link rel="stylesheet" href="searchform.css">
     <link rel="stylesheet" href="logo.css">
+    <link rel="stylesheet" href="headerutil.css">
+    <link rel="stylesheet" href="navbar.css">
+    <link rel="stylesheet" href="content1.css">
+    <link rel="styleSheet" href="main2.css">
+    <link rel="styleSheet" href="main3.css">
 
 
 </head>
@@ -59,9 +79,10 @@
 
     <div id="wrap">
         <header>
-            <div id="logo">
+            <div id="header_1">
                 <a href="#" id="logo_1">햇살<span id="logo_2">마켓</span></a>
             </div>
+
             <div id="header_2">
                 <form action="search" method="get" id="search_form">
                     <div id="search_text">
@@ -72,15 +93,107 @@
                     </div>
                 </form>
             </div>
-            <div id="header_3"></div>
+
+            <div id="header_3">
+                <div id="util">
+                    <a href="#">로그인</a>
+                    <a href="#">회원가입</a>
+                    <a href="#">장바구니</a>
+                </div>
+            </div>
         </header>
         
-        <nav></nav>
+        <nav>
+            <ul id="navbar">
+                <li><a href="#">인기</a></li>
+                <li><a href="#">제철</a></li>
+                <li><a href="#">과일</a></li>
+                <li><a href="#">채소</a></li>
+                <li><a href="#">축산</a></li>
+                <li><a href="#">양봉</a></li>
+            </ul>
+        </nav>
         
         <main>
-            <div id="content_1"></div>
-            <div id="content_2"></div>
-            <div id="content_3"></div>
+            <div id="content_1">
+                <img src="image\222.jpg" alt="농산물 이미지">
+            </div>
+                    <h3 id="content2_title">실시간 인기 랭킹</h3>
+            <div id="content_2">
+                <div>
+                    <img src="image/딸기.jpg" alt="딸기이미지">
+                    <div>
+                        <p>[종로농원] 황금딸기</p>
+                        <button>구매하기</button>
+                    </div>
+                </div>
+                <div>
+                    <img src="image/수박.jpg" alt="">
+                    <div>
+                        <p>[종로농원] 꿀수박</p>
+                        <button>구매하기</button>
+                    </div>
+                </div>
+                <div>
+                    <img src="image/메론.jpg" alt="">
+                    <div>
+                        <p>[종로농원] 황금메론</p>
+                        <button>구매하기</button>
+                    </div>
+                </div>
+                <div>
+                    <img src="image/사과.jpg" alt="">
+                    <div>
+                        <p>[미래농원] 금사과</p>
+                        <button>구매하기</button>
+                    </div>
+                </div>
+                <div>
+                    <img src="image/복숭아.jpg" alt="">
+                    <div>
+                        <p>[미래농원] 복숭아</p>
+                        <button>구매하기</button>
+                    </div>
+                </div>
+            </div>
+                    <h3 id="content2_title">실시간 제철 랭킹</h3>
+            <div id="content_3">
+                <div>
+                    <img src="image/딸기.jpg" alt="딸기이미지">
+                    <div>
+                        <p>[종로농원] 황금딸기</p>
+                        <button>구매하기</button>
+                    </div>
+                </div>
+                <div>
+                    <img src="image/수박.jpg" alt="">
+                    <div>
+                        <p>[종로농원] 꿀수박</p>
+                        <button>구매하기</button>
+                    </div>
+                </div>
+                <div>
+                    <img src="image/메론.jpg" alt="">
+                    <div>
+                        <p>[종로농원] 황금메론</p>
+                        <button>구매하기</button>
+                    </div>
+                </div>
+                <div>
+                    <img src="image/사과.jpg" alt="">
+                    <div>
+                        <p>[미래농원] 금사과</p>
+                        <button>구매하기</button>
+                    </div>
+                </div>
+                <div>
+                    <img src="image/복숭아.jpg" alt="">
+                    <div>
+                        <p>[미래농원] 복숭아</p>
+                        <button>구매하기</button>
+                    </div>
+                </div>
+            </div>
         </main>
         
         <div id="footer">

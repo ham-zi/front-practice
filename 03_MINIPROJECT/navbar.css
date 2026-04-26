@@ -1,0 +1,30 @@
+nav{
+    background-color: rgb(255, 245, 245);
+    
+}
+
+nav > ul {
+    display:flex;
+    text-align: center;
+    justify-content: center;
+}
+
+nav > ul > li {
+    list-style: none;
+    border-right : 1px solid rgb(187, 187, 187);
+    padding : 0px 20px;
+}
+
+ul > :last-child {
+    border-right : 0px;
+}
+
+nav > ul > li > a {
+    text-decoration: none;
+    color: rgb(34, 34, 34);
+
+    &:hover{
+        font-weight: 600;
+        color :black
+    }
+}

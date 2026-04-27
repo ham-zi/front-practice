@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+
+    <h1>자바스크립트의 경우 자료형을 선언하지 않음</h1>
+
+    <h3>자바스크립트는 총 세개의 키워드로 변수를 선언할 수 있음</h3>
+
+    <h4>var, let , const</h4>
+
+    <button onclick="variable();">변수 선언해보기</button>
+
+    <script>
+        function variable() {
+            var userId = 'user01';
+            console.log(userId);
+
+            userId = 'user02';
+            console.log(userId);
+            userId = 123;
+            console.log(userId);
+            userId = true;
+            console.log(userId);
+            //타입이 없다.
+            var userId = 'user03';
+            console.log(userId);
+            console.log('--------------')
+            let userpwd = 'pass01';
+            console.log(userpwd);
+            userpwd = 'pass02';
+
+            console.log('------------')
+            const userName = '고길동';
+            console.log(userName);
+
+            // var : 중복선언 가능, 재할당 가능
+            // let : 중복선언 불가능, 재할당 가능
+            // const : 중복선언 불가능, 재할당 불가능, 초기화 반드시 해야함.
+            // 요청받으면 정수값/조회결과하나,조회결과여러개를
+            // 안전하게 응답받기위해서
+            // 반드시 const를 이용해서 변수를 선언하자
+            // 혹시나 변경이 필요할 때는 let을 사용하자
+
+            //그럼에도 불구하고 var를 쓰는 경우가 간혹하다 있따
+            // 
+        
+
+        }
+    </script>
+
+
+        <button onclick="scope();">버거킹</button>
+
+        <script>
+            function scope() {
+                for ( var i=0; i<5; i++) {
+                    console.log(i);
+                if(1) {
+                    var userName='홍길동';
+                }
+                }
+            }
+            // var는 functionScope
+            //선언된 함수 영역에서 계속 사용할 수 있음
+        </script>
+
+    <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+</body>
+</html>

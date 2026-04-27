@@ -1,20 +1,21 @@
-#header_1{
+#logo{
     display: flex;
     align-items: center;
     justify-content: center;
 }
 
 #logo_1{
+    
     text-decoration: none;
-    color: rgb(43, 37, 37);
+    color: rgb(219, 75, 75);
     font-weight: 700;
-    font-size : 28px;
+    font-size : 25px;
 }
 
 #logo_2{
-    font-size : 26px;
+    font-size : 20px;
 }
 
 #logo_3{
-    color : rgb(34, 31, 31)
+    color : rgb(247, 70, 70)
 }

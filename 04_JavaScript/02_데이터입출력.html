@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>입출력하기</title>
+
+    <style>
+        #nav{
+            position : fixed;
+            width : 200px;
+            height : 50px;
+            right : 80px;
+            top : 120px;
+            border : 1px solid pink;
+            background-color: purple;
+        }
+
+        .area{
+            width:500px;
+            height : 300px;
+            border : 1px solid;
+        }
+
+        .blue{
+            color : blue;
+        }
+    </style>
+</head>
+<body>
+    <!--
+        자바스크립트의 사용 목적
+
+        1. HTML요소 조작
+        2. AJAX 비동기 ==> 서버개발을 배우고 난 후
+        3. 데이터 입력 / 출력 
+        4. SPA구현 ==> SpringBoot 배우고 난 후
+    -->
+
+    <h3 >HTML의 조작이 뭘까?</h3>
+    <button onclick="darkMode();">다크모드</button> <br>
+    <button onclick="lightMode();">라이트모드</button>
+
+    <div id="nav">
+        div요소
+    </div>
+    <button onclick="hi();">버튼버튼</button>
+
+
+    <script>
+        const bodyElement = document.querySelector('body');
+
+        function darkMode() {
+            bodyElement.style.background = 'black';
+            bodyElement.style.color = 'white';
+        }
+
+        function lightMode() {
+            bodyElement.style.background = 'white';
+            bodyElement.style.color = 'black';
+        }
+        // HTML의 요소를 조작한다
+        // 주로 쓰는 스타일 변경
+
+        function hi() {
+            document.querySelector('#nav').style.display = 'none';
+        }
+    </script>
+
+    <hr>
+
+    <!--
+        자바스크립트를 사용할 때 알아 두어야하는 객체 한 가지!!
+        - window객체 : 브라우저 창이 하나 열릴 때 마다 하나씩 생성되는 객체
+        특징) 브라우저 창 안에 있는 모든 요소들의 최상위 객체 == Obejct 
+
+
+
+    -->
+
+
+    <h3>documnet.write('출력하고자하는 문구')</h3>
+    <button onclick="documentwrite();">누르고 싶게 만들기</button>
+
+    <script>
+        // window.alert('알림')
+        function documentwrite(){
+            //alert('테스트');
+            document.write('<strong>ㅎㅎㅎㅎㅎㅎㅎㅎㅎㅎwrite()!!</strong>');
+        }
+    </script>
+
+    <h3>요소 객체.inner / innerText = '요소에 출력할 내용'</h3>
+
+    <div id="area1" class="area">
+        innerHTML / innerText <br>
+        요소(Element)의 값(Content)를 조작할 수 있는 속성 두 가지 
+
+        => get : 요소.innerHTML / innerText <br>
+        => set : 요소.innerHTML / innerText = '대입할 값'
+
+
+    </div>
+
+
+    <button id="btn1">버튼!</button>
+
+    <script>
+        // 1. 먼저 필요한 요소에 접근
+        const innerBtn = document.querySelector('#btn1');
+        console.log(innerBtn);
+        // 2. 선택된 요소의 이벤트 속성에 이벤트 핸들러(함수) 대입
+        innerBtn.onclick = function() {
+            alert('선택된 요소의 이벤트 속성에 이벤트 핸드러(함수 대입)');
+        }
+
+        // 1.div 요소에 접근
+        // 자바스크립트에서 속성 = 프로퍼티 // 메서드 = 프로퍼티값이 함수인 경우
+        const innerDiv = document.querySelector('#area1');
+        //요소 객체
+        console.log(innerDiv);
+        console.dir(innerDiv);
+        //모든 속성의 value값을 get할 수 있따
+        console.log("div요소의 id값:" +innerDiv.id);
+
+
+        console.log('---------------------')
+        // HTML 자체를 다 포함시키는것 // 태그를 포함한다
+        console.log(innerDiv.innerHTML);
+        // Text만 value값임 // 태그를 포함하지 않는다.
+        console.log(innerDiv.innerText);
+
+        // 요소의 property에 set하는 방법
+        innerDiv.innerHTML = '<b>innerHTML 속성 값 변경 </b>';
+        //innerDiv.style.color= 'blue'; 실무XX
+        innerDiv.className='blue'; // 실무 OO 
+
+
+
+    </script>
+
+    <hr>
+
+    <h2>입력받는 방법!!</h2>
+
+    <h3>1) window.confirm('질문내용')</h3>
+
+    <pre>
+        confirm() 호출 시 인자로 전달한 '질문내용'과 확인/취소 버튼이 존재하는 창이 뜸
+        확인 버튼을 클릭 시 true값 반환, 취소 버튼 클릭 시 false값 반환
+    </pre>
+
+    <button onclick="check();">버튼</button>
+    <div id="area2" class="area"> 
+
+    </div>
+
+    <script>
+        function check() {
+            const value = confirm('졸리면 확인, 아니면 취소를 눌러보세요');
+            //console.log(value);
+
+            const divEl = document.querySelector('#area2');
+            //console.log(divEl);
+
+            if(value) {
+                //1번 변수명을 적는다
+                //2.로 참조한다
+                //3. 속성명을 적는다.
+                //4. 대입연산자를 적는다. 
+                //5. 대입할 값을 적는다.
+                divEl.innerHTML = '<div style="color:red">잠깨잠깨잠깨잠깨잠깨잠깨잠깨잠깨잠깨잠깨</div>';
+            } else {
+                divEl.innerHTML = '<h3>잘하고잇써~!</h3>';
+            }
+
+        };
+
+        function fn1() {
+
+        }
+    </script>
+
+
+    <hr>
+
+    <h3>수량</h3>
+
+    <button onclick="minus();">-</button>
+    <span id="count">0<img src="" alt="" srcset="">0</span>개
+    <button onclick="plus();">+</button>
+
+    <script>
+
+        function minus() {
+            const minusEl = document.querySelector('#count');
+            //console.log(minusEl); 
+            minusEl.innerText -= 17;
+        };
+
+        function plus() {
+            const plusEl = document.querySelector('#count');
+            plusEl.innerText = Number(plusEl.innerText) +17;
+        }
+
+    </script>
+
+
+<hr>
+    <pre>
+        prompt() 호출 시 '질문 내용'과 사용자가 값을 입력 할 수 있는
+        input요소와 확인 /취소 버튼이 보여지는 창 생성<br>
+
+        -확인 버튼 클릭 시 텍스트 상자에 입력한 값을 반환
+        -취소 버튼 클릭 시 null값을 반환
+    </pre>
+
+    <ul id="parent"></ul>
+    <button onclick="createEl();">버튼</button>
+
+
+    <script>
+        function createEl() {
+            const num = prompt('숫자를 입력해주세요~');
+            //console.log(num);
+            const parent = document.querySelector('#parent');
+            for(let i = 0; i <num; i++) {
+                parent.innerHTML += '<li>지식</li>';
+            };
+        }
+    </script>
+
+    <h3> 4) input요소.value </h3>
+    <input type="text" id="input-text"> <br>
+    <label id="msg"></label>
+    <button onclick="validation();">버튼</button>
+
+    <script>
+        function validation() {
+            const el = document.querySelector('#input-text');
+            //console.dir(el); 입력한 값은 무조건 문자열 
+            const labelEl = document.querySelector('#msg');
+            labelEl.style.fontSize = '11px';
+            if(el.value.length > 10) {
+                labelEl.innerHTML = '너무길어요';
+
+
+            } else {
+                labelEl.innerHTML = '참 잘했어요';
+                labelEl.style.color = 'lightgreen';
+            }
+
+
+
+        }
+    </script>
+
+    <hr>
+    <div id="color" class="area" style="background-color: yellowgreen;"></div>
+    <!-- myBatis crud 하루에 한번씩 완성하기-->
+     <button onclick="selectById();">할건 합시다</button>
+
+     <script>
+        function selectById() {
+            const area1 = document.querySelector('#color'); // 2008
+
+            //속도는 getElemntById가 매우 빠르다.
+
+           // console.log(area1);
+
+            if(area1.style.background == 'yellowgreen') {
+                area1.style.background = 'yellow';
+            }else if(  area1.style.background == 'yellow') {
+                area1.style.background = 'blue';
+            }else if( area1.style.background == 'blue') {
+                  area1.style.background = 'red';
+            }else {
+                area1.style.background = 'yellowgreen';
+            }
+
+        }
+     </script>
+
+
+
+     <h3> 태그명으로 요소들 접근</h3>
+     <ul>
+        <li>1</li>
+        <li>2</li>
+        <li>3</li>
+        <li>4</li>
+        <li>5</li>
+     </ul>
+
+     <button onclick="tag();">태그명으로 접근하기</button>
+
+
+     <script>
+
+        function tag() {
+            const arr = document.querySelector('li');
+            const lis = document.getElementsByTagName('li');
+            //console.log(lis);
+            //console.log(arr);
+
+            let redColor = 100;
+            for(let i =0; i <lis.length; i++){
+                lis[i].style.backgroundColor = 'rgb('+redColor+',180,180)';
+                redColor += 30;
+            }
+        }
+
+     </script>
+
+        <h3> name 속성 값으로 접근해보기</h3>
+        <form action="요청받아줄서버" method="GET">
+            <fieldset>
+                <legend>동물목록</legend>
+                <input type="checkbox" name="animal" value="고래">
+                <input type="checkbox" name="animal" value="기린">
+                <input type="checkbox" name="animal" value="악어">
+                <input type="checkbox" name="animal" value="코끼리">
+                <button type="button" onclick="checkAnimal();">버튼</button>
+            </fieldset>
+
+        </form>
+
+        <script>
+            function checkAnimal() {
+                const animals = document.getElementsByName('animal');
+                //console.log(animals);
+                //console.log(animals[0].value);
+                //console.log(animals[0].checked);
+                //만약에 버튼을 클릭했을 때 펭귄 체크박스가
+                //체크된 상태라면 alert창을 띄우겠다. 등
+                let checkMenu = '';
+                /*if(animals[0].checked){
+                    checkMenu += ' ' + animals.values;
+                    for(let i=0; i< animals.length; i++) {
+                        if(animals[i].checked) {
+                            checkMenu += ' ' + animals[i].value;
+                        }
+                    }
+                    if(checkMenu != '') alert('선택하신 동물은 ' + checkMenu + '입니다.');
+                    } */
+                    
+               
+               const selected = [...animals].filter(e => e.checked).map(e=>e.value);
+               alert(`선택한 동물을 ${selected}`);
+
+
+
+            }
+
+        </script>
+
+
+
+    <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+</body>
+</html>

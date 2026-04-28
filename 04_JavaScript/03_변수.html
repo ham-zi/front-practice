@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 </head>
-<body>
+<>
     
 
     <h1>자바스크립트의 경우 자료형을 선언하지 않음</h1>
@@ -70,6 +70,138 @@
             //선언된 함수 영역에서 계속 사용할 수 있음
         </script>
 
+
+        <hr>
+
+        <h4>변수 선언 위치에 따른 전역 / 지역 변수로 나뉜다</h4>
+
+        <script>
+            var str = 'var 전연변수';
+            //현재 이 HTML문서가 전부 다 로딩되고 나서
+            // 곧바로 실행할 이벤트 핸들러(익명함수)를 수행
+            // 많은 뜻을 의미함 -> 모든 css,html,자바스크립스 모듈 다 읽혀야함
+            window.onload = function() {
+                var str = 'var 지역변수';
+                console.log(str);
+                console.log(window.str);
+                console.log(this.str); // this키워드가 항상 window객체를 가르키는 것은 아니다.
+            }
+
+            console.log(str);
+
+
+
+        </script>
+
+
+        <h3> 자료형 </h3>
+
+        <pre>
+
+            변수 선언 시 자료형을 별로도 선언하지 않음
+            자료형의 개념이 없는건 아님
+            => 변수에 대입되는 값에 따라서 알아서 자료형을 결정함 : 타입추론
+
+        </pre>
+
+
+        <ul>
+            <li>string : 문자열</li>
+            <li>number : 숫자</li>
+            <li>boolean : 논리</li>
+            <li>object : 객체</li>
+            <li>function : 함수</li>
+            <li>undefined : 초기화가 안된 상태</li>
+        </ul>
+
+        <div class="area" id="area"></div>
+        <button onclick="printType()">자료형 출력해보기</button>
+
+
+        <script>
+            function printType() {
+                const name = '홍길동';
+                const age = 15;
+                const isGoodThief = true;
+                const hobby = ['운동','공부'];
+                const family = {
+                    아버지 : "홍문",
+                    형 : '홍인형'
+                };
+                const call = function() {
+                    alert('아버지를 아버지라 못부름');
+                };
+                let noVAl;
+
+                const area = document.querySelector('#area');
+                console.log(area);
+                // area.innerHTML = name + "<br>";
+                // 더하기 기호를 안쓰고 쓸 수 있따 빽틱!
+                    
+                area.innerHTML = `<hr>
+                                  이름: ${name}<br>
+                                  나이: ${age}<br>
+                                  의적인가? : ${isGoodThief}<br>
+                                  취미: ${hobby}<br>
+                                  가족: ${family}<br>
+                                  함수: ${call}<br>
+                                  초기화를 진행하지 않은 변수 :  ${noVAl}<br><hr>`;
+                area.innerHTML += ` ${typeof name}<br>
+                                    ${typeof age}<br>
+                                    ${typeof isGoodThief}<br>
+                                    ${typeof hobby}<br>
+                                    ${typeof family}<br>
+                                    ${typeof call}<br>
+                                    ${typeof noVAl}<br>`
+            }
+        </script>
+
+
+            <h3>string타입 메소드들</h3>
+
+            <button onclick="stringMethod();">문자열 메소드 호출</button>
+
+            <script>
+                function stringMethod() {
+                    const str = "Hello World!";
+
+                    console.log(`str : ${str}\n
+                                문자열의 길이 : ${str.length}
+                                ToUpperCase : ${str.toUpperCase}
+                                ToLowerCase : ${str.toLowerCase}
+                                indexOf : ${str.indexOf('l')}
+                                lastIndexOf : ${str.lastIndexOf('l')}
+                                substring : ${str.substring(3)}
+                                substring : ${str.substring(0,4)}
+                                ${Math.random()}`);
+
+
+                console.log(`---------------------------------`)
+
+                console.log( 7+7+'7') // 147
+                // number가 string으로 형변환이 이루어져서 더하기 연산
+                // 더하기만 그럼, (숫자끼리)
+                // 숫자끼리가 아니면 ->Not A Number NAN
+
+                const price = '1,000';
+                const salePrice = '700';
+                //넘버로 강제 형변환하는 방법
+
+                console.log(price+salePrice);
+                console.log(parseInt(salePrice) + parseInt(price));
+                console.log(Number(salePrice) + Number(salePrice));
+                // parseFloat (소수점)
+                
+                // parseInt 와 Number의 차이는?
+                // Number(price)하면 , 을 인식못하고 NAN이 된다.
+                // parseInt는 숫자만 가져와서 형변환해줌. 
+
+
+                console.log(isNaN(price));
+                console.log(isNaN(salePrice));
+                console.log(isNaN(parseInt(price)));
+                }
+            </script>
     <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
 </body>
 </html>

@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        .area{
+            background-color: antiquewhite;
+            border : 1px solid blanchedalmond;
+            height : 300px;
+        }
+    </style>
+
+</head>
+<body>
+    
+
+    <h3> 생성자 함수 </h3>
+
+    <button onclick="con();">생성하자</button>
+
+    <script>
+        function con() {
+            // 웹툰 객체 만들고싶다
+            // 속성3개 -> 이미지, 제목, 작가명
+            const webtoon1 = {
+                image : "",
+                title : "",
+                author : ""
+            };
+            // webtoon2,3,4, ... 반복하는 것을 줄여줌
+            // 생성자
+            function Webtoon(image, title, author) {
+                this.image = image;
+                this.title = title;
+                this.author = author;
+            }
+            // 생성자함수가 가능해지는 로직 (선언할 때 첫글자를 대문자로 만들어야함)
+            // 1. 대문자로 하면 -> this = {}; 빈객체를 생성
+            // 2. this.image = image -> 속성 생성
+            // 3. new Webtoon(매개변수)로 새 객체를 생성
+            // 4. const 변수명에 객체를 대입
+            const webtoon2 = new Webtoon("이미지경로", "캐슬2", "정연");
+            const webtoon3 = new Webtoon("하하", "호호", "히히");
+            console.log(webtoon2);
+            console.log(webtoon3);
+            
+        }
+    </script>
+
+
+    <hr>
+
+    <h3> Date 객체 </h3>
+
+    <button onclick="dateFn();">날짜 객체</button>
+    <div id="area1" class="area"></div>
+
+    <script>
+        function dateFn(){
+            const area = document.querySelector('#area1');
+
+            // Date 객체 javascript에서 만들어둔 Date생성자?
+            const date1 = new Date();
+            area.innerHTML = `현재날짜 및 시간 : ${date1} <br>`;
+            
+            // 2026년 9월 23일 세팅
+            const date2 = new Date(2026, 9 - 1, 23);
+            area.innerHTML += `종강일 : ${date2} <br>`;
+            // 요일을 알아내는
+            // 0==일요일 1:월요일 2:화요일 ... 6:토요일
+            area.innerHTML += `${date1.getDay()}<br>`;
+            
+            // 2026년 9월 23일 17시 50분 시간 세팅
+            const date3 = new Date(2026, 9-1 , 23, 17, 50, 0);
+            area.innerHTML += `종강일+시간 : ${date3} <br>`;
+            
+            // ms 단위까지 가능
+            // 1000ms = 1s
+            const date4 = new Date(2026, 9-1, 23, 17, 50, 0, 5000);
+            area.innerHTML += `종강일+시간+ms : ${date4} <br>`;
+
+            //종강일까지 디데이 구하기
+            const endDay = new Date(2026, 9-1, 23);
+            const today = new Date();
+            const dDay = (endDay-today) / (24*60*60*1000);
+            area.innerHTML += `디데이 : ${Math.ceil(dDay)}일<br>`; // ms단위로 나옴
+            // 나눠서 계산..................
+            // Math.ceil << 소수점 절삭
+            
+
+            // 월 혹은 년, 일만 뽑는 방법
+            area. innerHTML += `
+                                ${date1.getFullYear()} <br>
+                                ${date1.getMonth()+1} <br>
+                                ${date1.getDate()} <br>
+                                ${date1.getHours()} <br>
+                                ${date1.getMinutes()} <br>
+                                ${date1.getSeconds()} <br>
+                                `;
+        }
+    </script>
+
+
+    <h2>브라우저에서 제공하는 인터페이스</h2>
+
+    <pre>
+        브라우저상에서 javascript어너로 브라우저라는 프로그램을 제어할수 있또록 // 이용해서 dom트리를 제어함
+        BOM과 DOM이라는 인터페이스가 제공됨
+
+        -BOM(Browser Object Model) : 브라우저 관련
+        -DOM(Document Obejct Model) : HTML문서 관련
+
+
+
+
+        
+        
+        
+    </pre>
+    <h3>window 객체의 메소드</h3>
+    <button onclick="openFn();">요즘에도 간혹가다가 이런게 보임</button>
+
+    <script>
+        function openFn(){
+            window.open('http://www.naver.com',"하하",'width=400, height=500');
+        }
+    </script>
+
+
+    <h4> window.setTimeout (함수, ms)</h4>
+
+    <button onclick="timeout();">타임아웃버튼</button>
+    
+    <script>
+        //지정한 시간에 단 한 번 핸들러를 수행하는 함수
+        function timeout(){
+            //alert('ㅎㅇㅎㅇ');
+            setTimeout(() => {
+                alert('ㅎㅇㅎㅇ');
+            }, 1000);
+
+
+            const newWindow = open();
+            newWindow.alert('이 버튼을 누르면 3초 뒤 창이 닫혀요');
+
+            setTimeout(()=>{
+                newWindow.close;
+            },3000);
+        };
+
+
+        window.onload = () => {
+
+
+            setTimeout(()=>{
+                //location.href = 'https://www.naver.com';
+            },3000);
+        }
+    </script>
+
+    <hr>
+
+    <h4>window.setInterval(함수,ms)</h4>
+
+    <button onclick="timer();">째깍째깍</button>
+    <div id="area2" class="area"></div>
+
+    <script>
+        function timer() {
+            const area = document.querySelector('#area2');
+            const value = 'ㅋ';
+            let count = 10;
+
+            setInterval(() => {
+                //area.innerHTML += value; //반복문자열
+                //area.innerHTML += count--; //카운트다운
+                const date = new Date();
+                let hour = date.getHours();
+                let min = date.getMinutes();
+                let sec = date.getSeconds();
+
+
+                area.innerHTML = `현재시간 : ${hour} : ${min} : ${sec < 10 ? "0" + sec :sec}`;
+                // 매초 날짜 리셋
+            },1000);
+            //setInterval : 지정한 간격 마다 "매 번" 핸들러를 수행
+
+        };
+    </script>
+
+
+    <h3>BOM</h3>
+
+    <p>location, screen, navigator</p>
+
+    <p>location 객체 중요중요</p>
+    <button onclick="console.log(location)">로케이션 확인</button>
+    <!--  href 하이퍼레퍼런스 -->
+      <p>브라우저의 주소 입력창 = > URL(href속성값)</p>
+
+      <button onclick="loc();">매커니즘</button>
+
+      <script>
+        function loc() {
+            location.href = 'http://www.naver.com';
+        }
+        //화면 전환에 꼭 쓰겠는데?좋다이거
+      </script>
+
+
+      <!-- 새로고침 -->
+       <button onclick="location.href=location.href">새로고침</button>
+       <button onclick="location.reload();">새로고침2</button>
+    
+
+
+       <h5>screen, navigator</h5>
+
+       <button onclick="console.log(screen)">스크린</button>
+       <button onclick="console.log(navigator)">나비</button>
+
+       <pre>
+        screen : 사용자가 보고있는 화면에 대한 정보
+        navigator : 브러우저에 대한 정보
+       </pre>
+
+       <h2> DOM </h2>
+
+       <pre>
+        리액트 : 자바스크립트 함수 모음
+        리액트 원리에 대해서...
+
+        - 요소 노드(Element Node) : 태그 자체를 의미
+        - 텍스트 노드(Text Node) : 태그의 content내에 기록되는 내용을 의미
+
+        텍스트노드가 없는 요소(빈태그) : input, img , br, hr, ...
+        
+        <div id="area3" class="area"></div>
+        <button onclick="addElement();">요소를 만들어보자</button>
+
+        <script>
+            function addElement() {
+                // 동적인 요소 만들기
+                // 처음 문서를 로딩할 때 존재 하지 않다가
+                // 나중에 만들어지는 요소 == 동적인 요소
+
+
+                //컨트롤러에서 user01이라는 문자열을 반환해주었다
+                //<h3> 조회된 문자열 </h3>
+                
+                const userId = 'user01';
+
+                //1. 문자열로 만드는 방법
+                document.querySelector('#area3').innerHTML = `<h3>${userId}</h3><br>`;
+
+                //2. document 객체가 제공하는 메소드를 통해 "요소 객체"를 만들기
+                const elementNode = document.createElement('h3'); //요소 객체 
+                const textNode = document.createTextNode(userId);
+                elementNode.appendChild(textNode);
+
+
+                document.querySelector('#area3').innerHTML = elementNode; 
+                document.querySelector('#area3').appendChild(elementNode);
+                // 객체라서 innerHtml = 에 넣으면 객체주소를 알려줌
+                // => appendChild 자식요소로 넣어라.
+
+                // 나중에 배울 react는 가상 DOM개념을 사용함
+                const img = document.createElement('img');
+                //img.src='https://naverpa-phinf.pstatic.net/MjAyNjA0MDlfMjMw/MDAxNzc1NzMxNTYwMzg0.xYifeMRQi1yLJdby1EsL8z3c2Xg_c2icuO9bpHoFPDQg.yoi9VShDVMQd8FyUqzEoe38dAG9JbTPOiM07eSEwsJcg.PNG/16%EA%B8%B0_%EB%A1%A4%EB%A7%81%2B%ED%83%80%EC%9E%84%EB%B3%B4%EB%93%9C03_342x228_1775731560368973175241892288198.png';
+                document.querySelector('#area3').appendChild(img);
+
+
+            };
+        </script>
+
+
+
+       </pre>
+
+
+    <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+</body>
+</html>

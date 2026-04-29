@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>함수</title>
+    <style>
+        .area{
+            border : 1px solid skyblue;
+            width:200px;
+            height:50px;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>함수! (function)</h1>
+    <!--
+        함수의 목적
+        
+        1. 코드의 재사용(의미를 달아두고 싶음)
+
+        2. 이벤트 핸들러
+
+
+
+    -->
+
+
+    <h3>선언적함수</h3>
+    <pre>
+        function 이라는 키워드를 이용하여 함수를 선언
+        function에 식별자를 선언하기 때문에, 선언적함수
+
+
+        function 함수식별자(매개변수){
+            함수 호출 시 수행할 코드
+
+            return 결과값;
+        }
+         - 매개변수, return 은 생략 가능
+
+
+    </pre>
+
+
+    <div id="area1" class="area" onclick="firstFn">ㅁㄴㅇㄹ</div>
+    <button onclick="firstFn">버튼</button>
+
+    <script>
+        function firstFn() {
+            document.querySelector('#area1').innerHTML = '함수호출';
+        };
+    </script>
+
+    <h3> 익명 함수 </h3>
+
+    <pre>
+        변수/속성 = () => {
+            이벤트가 발생했을 때 수행할 코드
+        }
+
+
+    </pre>
+    <button id="btn">버튼</button>
+    <div id="area2" class="area"></div>
+
+    <script>
+        const btnEl = document.querySelector('#btn');
+        btnEl.onclick = () => {
+            // 버튼을 클릭 했을 때 수행하고 싶은 코드를
+            // 버튼요소에 클릭 이벤트가 발생했을 때 동작시킬 코드 뭉치
+            // ==> 이벤트 핸들러
+            document.querySelector('#area2').innerHTML = '익명함수호출';
+
+        };
+    </script>
+
+
+
+
+
+    <hr>
+
+
+
+    <h3>함수의 매개변수</h3>
+
+    <button onclick="paramFn('문자열');">문자열</button>
+    <button onclick="paramFn(123);">숫자</button>
+    <button onclick="paramFn([1,2,3]);">배열</button>
+    <button onclick="paramFn(prompt('ㅎㅎ'));">펑션</button>
+    <!-- 인자값의 자료형은 함수 호출 시 아무런 영향을 끼치지 않는다.-->
+    <button onclick="paramFn();">無</button>
+    <!-- 실행에는 영향을 끼치지 않는다 / 단, undefined가 대입된다.-->
+    <button onclick="paramFn(1,2);">많이</button>
+    <!-- 인자의 개수도 실행에는 영향을 끼치지 않는다 / 단, 초과된 값은 사라진다.-->
+
+    <button onclick="paramFn(2,3,4,5,6,7,11,12,33,234,4,555,11111);">1번</button>
+    <button onclick="paramFn(23,55,44,33,22,11,66,77,88,55);">2번</button>
+
+    <div id="area3" class="area"></div>
+
+
+    <script>
+        function paramFn(...value) { // 가변 매개변수
+           // console.log(value);
+         //   document.querySelector('#area3').innerHTML = value;
+
+         //매개변수가 여러개 일 경우 'arguments 속성'에 담긴다.
+         console.log(arguments);
+         // 함수 호출 시 전달하는 인자값은 내부적으로 arguments라는 배열형태로 담김
+        }
+    </script>
+
+    <hr>
+
+    <button onclick="changeColor1(this);" id="btn1">내가 누구게</button> <br>
+    <button onclick="changeColor2(this);" id="btn2">내가 누구지</button>
+    <button onclick="color(this);" id="btn2">디스</button> //발생시킨 자기자신의 객체
+
+
+    <script>
+        function changeColor1(){
+            document.querySelector('#btn1').style.color='red';
+        }
+        function changeColor2(){
+            document.querySelector('#btn2').style.color='red';
+        }
+        
+        function changeColor(value) {
+            if(value === 1) {
+                document.querySelector('#btn1').style.color = 'red';
+            } else {
+                document.querySelector('#btn2').style.color='red';
+            }
+
+        }
+        // this를 인자로 넣으면 자기자신주소를 얻을 수 있다.
+        // 그것으로 다양하게 활용이 가능하다.
+        function color(value) {
+            value.style.color ='blue';
+        }
+    </script>
+
+    <h3> 함수의 반환! </h3>
+    <button onclick="random(prompt('이름을 입력하세요.'));">반환받기</button>
+
+    <div id="area6" class="area"></div>
+
+    <script>
+
+        function random(name){
+            const fn = gererateNum();
+            //console.log(num);
+            document.querySelector('#area6').innerHTML = fn(name);
+        }
+        //자바스크립트의 클로저 함수 : 외부 함수 실행이 끝나더라도
+        // 반환받은 내부 함수를 이용해서 외부 함수 내 변수를 사용하는 기술
+        function gererateNum(){
+            const num = parseInt(Math.random()*10)+1;
+            return function gererateName(name){
+                return `${name}님의 랜덤한 숫자 : ${num}`;
+            }
+        }
+    </script>
+
+    <h3> 옛날코드를 보면 볼 수도 있는 코드</h3>
+    <!-- 리턴 익명 함수 ㄷㄷ ㅋ-->
+    <button onclick="testFn()();">호출하기</button>
+    <script>
+        function testFn() {
+            return function() {
+                alert('날불렀는가?');
+            };
+        }
+    </script>
+
+    <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+</body>
+</html>

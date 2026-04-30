@@ -76,6 +76,84 @@
     </ol>
 
 
+    <h3>jQuery 사용하기</h3>
+
+    <pre>
+        jQuery를 사용해서 DOM을 다룰 예정
+        jQuery코드가 문서상 모든 요소들이 전부 다 로드 된 후에
+        실행할 수 있게 만들어 줘야함 => window.onload
+
+
+        onload : 페이지가 전부 다 로딩되고 나면 자동으로 딱 한번 수행
+        
+        해당 HTML의 요소들도 전부 다 로딩되고 연동되어 있는 외부 문서들도
+        전부 다 로딩된 후에 onload속성에 대입한 이벤트 핸들러가 수행되는
+        특징을 가짐
+    </pre>
+
+
+    <script>
+        window.onload = function() {
+            console.log('안녕하세요');
+        };
+        window.onload = function() {
+            console.log('asdfasdf');
+        }
+        // 딱 한 번만 수행되기 때문에 덮어쓰기 되는게 아니라,
+        // 가장 아래의 onload 하나만 수행한다.
+    </script>
+
+    <pre>
+
+        -jQuery에서는 해당 내용을 세 가지 구문을 제공하여 해결한다.
+
+        1) jQuery(document)함수 호출
+        jQuery(document).ready(function(){
+            실행하고 싶은 내용;
+        });
+
+        2) $ : jQuery키워드를 나타냄 (단순화)
+        $(document).ready(function(){
+            실행하고 싶은 내용;
+        });
+
+        3) 더욱 단순화
+        $(function(){
+            실행하고 싶은 내용;
+        });
+
+        jQuery에서 해당 function은 HTML문서 안에 있는 DOM요소들이
+        모두 로딩되면 바로 실행한다.
+        여러 번 기술 가능, 횟수 제한 없음.
+
+    </pre>
+
+    <script>
+        $(function() {
+            console.log('안녕하세요');
+        });
+        $(function(){
+            console.log('asdfasdf');
+        });
+
+        $(function(){
+            // 자주쓰는 
+            /*
+                .css() : 선택된 요소들의 스타일과 관련된 기능을 수행
+                $('선택자') : css에서 학습한 선택자를 이용해서 요소를 선택
+            */
+
+            const li = document.querySelectorAll('li');
+            for(let el of li) {
+                el.style.color = 'green';
+            };
+
+            console.log($('pre'));
+            $('pre').css('color','blue');
+        });
+
+    </script>
+
 
     <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
 </body>

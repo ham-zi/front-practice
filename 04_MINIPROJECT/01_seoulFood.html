@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>API</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+
+    <style>
+
+        #head{
+            color :rgb(22, 22, 22);
+            width : 1000px;
+            font-size : 18px;
+            font-weight : 600;
+            display: flex;
+            flex-direction: column;
+            letter-spacing: 1px;
+        }
+
+        #head > #htwo {
+            text-align: center;
+        }
+
+        #head > #menu {
+            display: flex;
+        }
+
+        #head > #menu > span{
+            flex : 1;
+            text-align: center;
+        }
+
+
+
+        #wrap{
+            width : 1000px;
+            box-sizing: border-box;
+            display: flex;
+            flex-direction: column;
+            text-align: center;
+            border : 1px solid rgb(39, 39, 39);
+        }
+
+        #wrap>div{
+            display : flex;
+            box-sizing: border-box;
+            height:80px;
+
+        }
+
+        #wrap>div>div{
+            box-sizing: border-box;
+            height:100%;
+            width: 100%;
+            border : 1px solid rgb(39, 39, 39);
+            font-weight: 500;
+        }
+
+        #day0{
+            font-weight: 600;
+        }
+
+        #btn{
+            height :60px;
+            width : 1000px;
+            font-size: 24px;
+            font-weight: 700;
+            letter-spacing: 5px;
+            color :rgb(212, 212, 212);
+            background-color: rgb(41, 41, 41);
+
+            &:hover{
+                background-color: rgb(51, 51, 51);
+                color: rgb(255, 255, 255);
+            }
+        }
+
+    </style>
+
+
+</head>
+<body>
+
+    <button onclick="next();" id="btn">버튼</button>
+    
+    <div id="head">
+        <div id="htwo">    
+            <h2>서울 맛집 검색</h2>
+        </div>    
+        <div id="menu">
+            <span>상호명</span>
+            <span>주소</span>
+            <span>운영시간</span>
+            <span>대표메뉴</span>
+        </div>
+    </div>
+    
+    <div id="wrap">
+
+    </div>
+
+    <script>
+        let startNum = 1;
+        let lastNum = 10;
+
+        function next(){
+            startNum += 5;
+            lastNum += 5;
+
+            food(startNum,lastNum);
+        }
+
+
+
+        function food(start,last){
+            $.ajax({
+                // 1단계 제이슨의 형태로 잘 받아서 url형태 갖고오기.
+                url : `http://openapi.seoul.go.kr:8088/565576576d64646d37385648627657/json/TbVwRestaurants/${startNum}/${lastNum}/`,
+                // 2단계 success : e => { 배열형태까지 참조하기 } 
+                success : e => {
+                    console.log(e);
+                    console.log(e.TbVwRestaurants.row);
+                    const rest = e.TbVwRestaurants.row;
+                // 3단계 .map을 이용해서 앞단+정보 작업해주기 
+                    const el = rest.map(e => ` 
+                                            <div>
+                                                <div>
+                                                    ${e.POST_SJ}
+                                                </div>  
+                                                <div>
+                                                    ${e.ADDRESS}
+                                                </div>
+                                                <div>
+                                                    ${e.CMMN_USE_TIME}
+                                                </div>
+                                                <div>
+                                                    ${e.FD_REPRSNT_MENU}
+                                                </div>
+                                            </div>
+                                             `).join('');
+                    console.log(el);
+                // 4단계 준비한 HTML에 요소 추가하기
+                    document.querySelector('#wrap').innerHTML=el;
+                }
+            });
+        }
+
+        $(function(){
+            food(startNum,lastNum);
+        }) 
+
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+
+</head>
+<>
+    
+
+    <h1>선택자 복습</h1>
+
+    <h3>현재 HTML문서에서 고유한 아이디 속성값을 가진 요소 단 하나만 선택</h3>
+
+    <h3 id="id1">id1</h3>
+
+    <h3 id="id2">id2</h3>
+
+
+    <script>
+
+        $(function(){
+            const h3El = document.querySelector('#id1');
+            h3El.innerHTML = '컨텐트';
+            h3El.style.color = 'green';
+
+
+            $('#id2').html('컨텐트!')
+                     .css('color','red');
+        });
+
+    </script>
+
+
+    <h3> 태그 선택자 </h3>
+
+    <p>1</p>
+    <p>2</p>
+    <p>3</p>
+    <pre>4</pre>
+    <pre>5</pre>
+    <pre>6</pre>
+    <div>7</div>
+    <div>8</div>
+    <div>9</div>
+
+    <script>
+
+        $(function(){
+            $('p').html('pppp').css('color','blue');
+            $('pre').html('preprepre').css('color','pink');
+            $('div').css('background','black').css('color','white');
+
+        });
+
+    </script>
+
+    <hr>
+
+    <h3> 클래스 선택자 </h3>
+
+    <h4 class="item select">Class1</h4>
+    <h4 class="item select">Class2</h4>
+    <h4 class="item select">Class3</h4>
+
+
+    <script>
+        $(function(){
+            
+            const items = document.querySelectorAll('.item');
+            for(let el of items) {
+                el.onclick = function(){
+                    alert('hi');
+                }
+            }
+            
+            //그래서 콜백함수구나?
+            // 매커니즘이 .map()과 동일하다
+            // 콜백함수
+            $('.select').click(function(){
+                console.log('hihi');
+            });
+
+        });
+
+    </script>
+
+</body>
+</html>

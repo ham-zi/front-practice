@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+
+</head>
+<body>
+    <button onclick="next();" type="button" class="btn btn-primary btn-lg btn-block" id="btn1">사회적 회사 목록</button> <br>
+
+    <table class="table table-striped" id="table1">
+        <thead>
+            <tr>
+                <th>회사명</th>
+                <th>주소</th>
+                <th>등록일자</th>
+            </tr>
+            <tbody id="tbody1">
+
+            </tbody>
+        </thead>
+
+    </table>
+
+
+
+    <script>
+        let startNum = 1;
+        let endNum = 5;
+        function next(){
+            socialCompany(startNum, endNum)
+            startNum += 5;
+            endNum += 5;
+
+        }
+
+        function socialCompany(startNum, endNum){
+
+            $.ajax({
+                url : `http://openapi.seoul.go.kr:8088/6d4e646d6964646d35374a676e7541/json/SESupportOrganizations/${startNum}/${endNum}`,
+                success : e => {
+                    console.log(e.SESupportOrganizations.row[0].REGIST_DATE);
+                    const companys = e.SESupportOrganizations.row;
+
+                    const el = companys.map( company => 
+                                                        `<tr>
+                                                            <th> ${company.SUBJECT} <th>
+                                                            <th> ${company.CONTENT} <th>
+                                                            <th> ${company.REGIST_DATE}<th>
+                                                            <tr>` 
+                    ).join('');
+
+                    $('#tbody1').html(el);
+                }
+            });
+    
+        }
+
+    </script>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
+</body>
+</html>

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+
+<style>
+	ul{
+		list-style : none;
+		list-height : 200%;
+	}
+</style>
+
+</head>
+<body>
+
+
+	<form method="get" action="second.do">
+			<h1>생각나는 단어 적기</h1>
+		<ul>			
+			<li>
+				동물 : <input type="text" name="animal"/>
+			</li>
+			<li>
+				숫자 : <input type="number" name="number"/>
+			</li>
+			<li>
+				좋아하는 음료수 (다중)선택 :
+				탄산음료 <input type="checkbox" name="drink" value="탄산음료"/>
+				이온음료 <input type="checkbox" name="drink" value="이온음료"/>
+				물     <input type="checkbox" name="drink" value="물"/>
+				티     <input type="checkbox" name="drink" value="티"/>
+				없음    <input type="checkbox" name="drink" value="없음"/>
+			</li>
+			<li>
+				오늘 날짜 입력 : <input type="text" name="date"/>
+			</li>
+			<li>
+			</li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+		
+		</ul>
+	</form>
+
+
+
+
+
+
+
+</body>
+</html>

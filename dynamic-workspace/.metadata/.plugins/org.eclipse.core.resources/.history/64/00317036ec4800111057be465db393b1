@@ -1,0 +1,151 @@
+package com.kh.first.controller;
+
+import java.io.IOException;
+import java.io.PrintWriter;
+
+import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+@WebServlet("/post.do")
+public class RequestPostServlet extends HttpServlet {
+	private static final long serialVersionUID = 1L;
+       
+ 
+    public RequestPostServlet() {
+        super();
+    }
+
+
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		System.out.println("POST방식 요청 시에도 doGet()를 호출");
+		
+		// 1.값을 추출하고 가공한다.
+		
+		// 2.요청 처리 --> service단 호출
+		
+		// 3.결과값 반환(응답화면 지정)
+		
+		// POST방식의 요청 일 경우 인코딩 설정이 ISO-8859-1 방식으로 바뀌기 때문에
+		// 인코딩 방식을 변경해주지 않으면 한글의 경우 다 깨짐
+		request.setCharacterEncoding("UTF-8");
+		
+		
+		String name = request.getParameter("name");
+		System.out.println(name); // 인코딩 방식을 변경해주지 안흥면 포스트 방식일 경우 문자가 깨짐 표준 "UTF-8"
+		String gender = request.getParameter("gender");
+		
+		int age = Integer.parseInt(request.getParameter("age"));
+		
+		String city = request.getParameter("city");
+		
+		int height = Integer.parseInt(request.getParameter("height"));
+		
+		String[] foods = request.getParameterValues("food");
+		// 나머지 input요소 값들도 파라미터또는 겟파라미터벨류스메소드를 호출하여 받아와서 변수에 대입한 뒤
+		// 콘솔창에 출력하기 시작
+		
+		
+		
+		/*
+		 * 
+		 * 2단계
+		 * 요청 처리
+		 * 
+		 * service -> DAO -> DB
+		 * List /DTO(VO) / int
+		 * 
+		 * 3단계
+		 * 응답데이터
+		 * 
+		 * 
+		 * 3_1. JSP를 이용해서 응답 페이지 만들기
+		 * 
+		 * JSP(Java Server Page) -> 2017년도 까지
+		 * 	   Jakarta Server Page -> 2017년도 부터
+		 * 
+		 * java기반의 서버사이드 웹 페이지 생성 기술 
+		 * 
+		 * 서버사이드 : 서버측
+		 * 클라이언트사이드 : 클라이언트/서버측
+		 * 
+		 * 특징 : ★서버에서 실행되어 동적으로 웹페이지를 생성할 수 있음★ 중요 : 서버에서 동작한다.
+		 * 
+		 * -----------------------------------------------
+		 * 
+		 * 응답화면(JSP)에서 필요한 데이터를 넘겨줄 것(request객체에 담아서)
+		 * attribute => 키 - 벨류 세스톨 묶어서 값을 담을 수 있음
+		 * request.getAttribute("키", "벨류");
+		 * 
+		 */
+		request.setAttribute("name", name); //여기서 셋은 객체를 생성하는 메서드인가봐?
+		request.setAttribute("gender", gender);
+		request.setAttribute("age", age);
+		request.setAttribute("height", height);
+		request.setAttribute("city", city);
+		request.setAttribute("food", foods);
+		request.setAttribute("msg", "성공성공");
+		
+		//응답 데이터 생성 과정을 JSP에게 위임(배정)한다
+		
+		
+		PrintWriter pw = response.getWriter();
+		pw.println("<html>");
+		pw.println("<head>");
+			pw.println("<title>순수 서블릿으로 응답해보기!</title>");
+			pw.println("<style>");
+				pw.println("#name{color : orange}");
+				pw.println("#age{color : orangered}");
+				pw.println("#city{color : forestgreen}");
+				pw.println("#gender{color : gold}");
+			pw.println("</style>");
+		pw.println("</head>");
+		pw.println("<body>");
+	
+		
+		pw.println("<ul>");
+			pw.println("<li>");
+				pw.printf("이름: $s", name);
+			pw.println("</li>");
+		
+
+			pw.println("<li>");
+				pw.printf("성별: %s", gender);
+			pw.println("</li>");
+
+			pw.println("<li>");
+				pw.printf("나이: $d", age);
+			pw.println("</li>");
+
+			pw.println("<li>");
+				pw.printf("주소: $s", city);
+			pw.println("</li>");
+
+			pw.println("<li>");
+				pw.printf("키: $d", height);
+			pw.println("</li>");
+
+			pw.println("<li>");
+			pw.println("</li>");
+
+			pw.println("<li>");
+			pw.println("</li>");
+		
+			
+		pw.println("</ul>");
+		pw.println("</body>");
+	pw.println("</html>");		
+		
+		
+	
+	}
+
+
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		System.out.println("doPost호출");
+		doGet(request, response);
+	}
+
+}

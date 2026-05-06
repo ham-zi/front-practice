@@ -1,0 +1,55 @@
+package com.kh.first.controller;
+
+import java.io.IOException;
+import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+
+@WebServlet("/first.do") //Servlet == HTTP요청을 처리하는 Java클래스
+public class RequsetGetServlet extends HttpServlet {
+	private static final long serialVersionUID = 1L;
+
+    public RequsetGetServlet() {
+        super();
+    }
+
+
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		System.out.println("ㅎㅇㅎㅇ");
+		
+		/*
+		 * 톰캣 실행 => web.xml
+		 * init() -> service() => doGet() / doPost() => destory()
+		 * 우리는 서블릿 컨테이너(Tomcat)가 서블릿의 생명주기를 관리 // 싱글톤 패턴으로 객체 하나만을 사용 // 멀티스레드 처리
+		 * 
+		 *
+		 * 
+		 * Dynamic WebProject를 진행하는 동안은 Servlet을 Controller로 사용할 것
+		 * 
+		 * 1. 데이터 가공
+		 * 2. 요청처리(Service단 호출)
+		 * 3. 결과값 반환(응답화면 지정)
+		 * 
+		 * View에서 Get방식으로 요청할 시 doGet()가 호출됨
+		 * 
+		 * 
+		 * 매개변수 두 개
+		 * 
+		 * 첫 번째 매개변수 : HttpServletRequest타입에는 요청 시 전달된 내용들이 담김
+		 * 
+		 * 
+		 * 
+		 * 
+		 * */
+		
+		
+	}
+
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		doGet(request, response);
+	}
+
+}

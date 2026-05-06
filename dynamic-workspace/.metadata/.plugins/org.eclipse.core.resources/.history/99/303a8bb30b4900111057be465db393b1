@@ -1,0 +1,43 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<%@ page import="com.kh.el.model.dto.Person" %>
+    
+    
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>초강력 JSP</title>
+</head>
+<body>
+<!-- 외부에서 접근할 수 없게 WEB-INF에 넣는다. -->
+	<h1> EL구문 배워보기... 정말 좋아요...</h1>
+	<!--
+	<%
+		String classRoom = (String)request.getAttribute("classRoom");
+		Person student = (Person)request.getAttribute("student");
+	
+		String academy = (String)session.getAttribute("academy");
+		Person lecture = (Person)session.getAttribute("lecture");
+		
+		
+	%>
+	
+	<p>
+		학원명 : <%= academy %> <br>
+		강의장 : <%= academy %> <br> 
+		강사정보 : <%= lecture.getName() %>, <%= lecture.getAge() %>, <%= lecture.getAddress() %> <br><br>
+		
+		수강생의 정보
+		
+		<ul>
+			<li> 이름 : <%=student.getName() %></li>
+			<li> 나이 : <%=student.getAge() %></li>
+			<li> 주소 : <%=student.getAddress() %></li>
+		</ul>
+	</p>
+	
+	-->
+	
+</body>
+</html>

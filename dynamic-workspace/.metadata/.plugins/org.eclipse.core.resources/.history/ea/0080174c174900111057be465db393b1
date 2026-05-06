@@ -1,0 +1,177 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<%@ page import="com.kh.el.model.dto.Person" %>
+    
+    
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>초강력 JSP</title>
+</head>
+<body>
+<!-- 외부에서 접근할 수 없게 WEB-INF에 넣는다. -->
+	<h1> EL구문 배워보기... 정말 좋아요...</h1>
+	
+	<%--  
+	<%
+		String classRoom = (String)request.getAttribute("classRoom");
+		Person student = (Person)request.getAttribute("student");
+	
+		String academy = (String)session.getAttribute("academy");
+		Person lecture = (Person)session.getAttribute("lecture");
+		
+		
+	%>
+		JSP 주석이 따로 있다.
+		
+		<!--는 단순히 문자열일뿐 주석이 아니다. 
+			  
+
+	<p>
+		학원명 : <%= academy %> <br>
+		강의장 : <%= academy %> <br> 
+		강사정보 : <%= lecture.getName() %>, <%= lecture.getAge() %>, <%= lecture.getAddress() %> <br><br>
+		
+		수강생의 정보
+		<!--통신은 흐름을 생각해야함,
+			클라이언트의 요청을 하면서 흐름이 시작됨
+			
+			
+		 -->
+		<ul>
+			<li> 이름 : <%=student.getName() %></li>
+			<li> 나이 : <%=student.getAge() %></li>
+			<li> 주소 : <%=student.getAddress() %></li>
+		</ul>
+	</p>
+	
+	자바와 자바스크립트는 연관이 전혀없다.
+		
+	
+	 --%>
+	 
+	 <hr>
+	 
+	 <h3> EL 구문을 이용해서 request / session에 담긴 값들을 출력</h3>
+	 
+	 <p>
+	 	학원명 : ${ academy } <br>
+	 	강의장 : ${ classRoom } <br>
+	 	강사정보 : ${ lecture.name } , ${lecture.age}, ${ lecture.address } <br>
+	 		<!-- getName()을 호출하는거구나. -->
+	 		
+	 	<!-- 
+	 		실제로 필드에 직접 접근하는 것은 불가능하다.
+	 		.name => getName()를 호출
+	 		
+	 		내부적으로 getter 메소드를 찾아서 호출해서 값을 출력하는 구조
+	 	
+	 	 -->
+	 	
+	 </p>
+
+
+	<hr>
+	 
+	 <p>없는 키 값을 출력하는 경우</p>
+
+	<p> 출력식 : <%= request.getAttribute("classRom") %></p>
+	<p> EL구문 : ${classRom } <!-- 오타가 빈문자열로 나옴, 꼼꼼하게 확인할것  -->
+	
+	
+	<h3>동일한 key값일 경우</h3>
+	
+	키 : ${ key }
+	
+	<%
+		//page Scope 에 추가
+		pageContext.setAttribute("key", "PageScope");
+	%>
+	키 : ${ key }
+	
+	<!-- 
+		EL구문은 가장 작은 범위의 scope부터 키값을 찾음
+		page => request => session => applicaiton순으로 키 값을 검색
+		
+		모든 영역을 다 찾았는데 키 값을 찾지 못했으면 => "", 아무일도 일어나지 않음 => 오류가 안남
+		
+		
+		요새 컴퓨팅자원이 좋아서 requestScope.key <- 명시를안하긴하는데 key
+		스코프를 적어주는게 더 좋다.
+	 -->
+	 pageScope에 값이 담겨있는데, 다른 Scope값을 출력하고 싶은데??<br>
+	 
+	 ==> Scope에 직접 접근하기 <br><br>
+	 
+	 requestScope :  ${ requestScope.key }	<br>
+	 sessionScope :	 ${ sessionScope.key }	<br>
+	 applicationScope : ${ applicationScope.key } <br>
+	 
+	 <hr>
+	  
+	 <h2> EL 구문을 이용한 연산</h2>
+	 
+	 <p></p>
+	 
+	 	산술 연산 <br><br>
+	 	
+	 	big + small = ${ bit + small }<br>
+	 	big - small = ${ big - small }<br>
+	 	big * small = ${ big * small }<br>
+	 	big / small = ${ big / small } 또는 ${ big div small }<br>
+	 	big % small = ${ big % small } 또는 ${ big mod small }<br>
+	 	<!-- 결과는 동일하지만 div/mod를 쓰는것을 권장한다... -->
+	 
+	 <hr>
+	 
+	 <h3> 숫자간의 대소비교 연산 </h3>
+	 
+	 <p>
+	 	big이 small보다 크니 ? : ${ big > small } 또는 ${ big gt small }<br>
+	 	big이 small보다 작니 ? : ${ big < small } 또는 ${ big lt small }<br>
+	 	big이 small보다 크거나 같니 ? : ${ big >= small } 또는 ${big ge small }<br>
+	 	big이 small보다 작거나 같니 ? : ${ big <= small } 또는 ${big le small }<br>
+	 	<!-- gt/lt/ge/le를 쓰는것을 권장한다... -->
+	 </p>
+	 
+	 <hr>
+	 <h3> 동등비교 연산</h3>
+	 	
+	 <p>
+	 	big과 small이 같습니까 ? : ${ big == small } 또는 ${ big eq small }
+	 	big과 10이 같습니까 ? : ${ big eq 10 }
+	 	big과 10이 다른가요 ? : ${ big != 10 } 또는 ${ big ne 10 }
+	 	<!-- eq/ne을 쓰는것을 권장한다. -->
+	 	
+	 	one과 two가 같습니까 ? : ${ strOne == strTwo } 또는 ${ strOne eq strTwo } 
+	 	문자열 비교해보기 :       ${ strOne eq '안녕' } 또는  ${ strOne eq "안녕" }
+	 	<!-- EL구문에서 문자열 == 비교는 equals()와 같은 동작을 함 -->
+	 </p>
+	 
+	 <hr>
+	 
+	 <h3> 객체가 null인지 또는 리스트가 비어있는지 체크 </h3>
+	 
+	 <p>
+	 	obj가 Null인지 체크 <br>
+	 	$ { obj == null } 또는 $ { obj eq null} 또는 ${ empty obj }
+	 	<!-- empty가 권장사항 (빈문자열, 널인지 체크)-->
+	 	
+	 	list가 비어 있습니까? : ${ empty list } <br>
+	 	list가 비어있지 않습니까? : ${ !empty list }
+	 </p>
+	 
+	 
+	 <hr>
+	 
+	 <h3> 5. 논리 연산자 </h3>
+	 
+	 <p>
+	 	AND 연산 : ${ true && true }
+	 	OR 연산 : ${ true || true }
+	 </p>
+	 
+	 
+</body>
+</html>

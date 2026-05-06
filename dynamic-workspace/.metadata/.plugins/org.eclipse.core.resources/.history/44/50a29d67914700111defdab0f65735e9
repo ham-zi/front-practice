@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+
+
+	<form method="get" action="second.do">
+		<ul>
+			<h1>생각나는 단어 적기</h1>
+			<li>
+				동물 : <input type="text" name="animal"/>
+			</li>
+			<li>
+				숫자 : <input type="number" name="number"/>
+			</li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+		
+		</ul>
+	</form>
+
+
+
+
+
+
+
+</body>
+</html>

@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>HTML!</title>
+</head>
+<body>
+
+	<h1>월컴파일</h1>
+	
+	<!--  
+	1) 새 워크스페이스 생성 후 이클립스로 열기
+	
+	2) 작업 환경 구성
+		1. 보여질 화면 요소를 구성
+		
+		2. 서버 실행 환경 구성 [window - preferences - (Server - Runtime Environments)]
+		   이클립스 상에서 서버를 실행할 수 있도록 실행 환경을 연동하는 과정
+		   Add 버튼 클릯 -> 설치한 ApacheTomcat과 동일한 버전을 선택 -> next버튼
+		   -> Browse버튼 클릭 -> 설치한 톰켓 폴더(bin폴더가 보여야함) -> finish버튼 클릭
+		
+	3-1) 서버 생성하기(Servers)
+		1. [Server] - [new] - [server]
+		
+		2. [2-2작업을 했다면 기본적으로 Runtime이 잡혀있음]
+		
+		3. finish버튼 클릭
+	
+	3-2) 서버 세팅하기(만들어진 서버를 더블 클릭)
+		1. 왼쪽하단에 ServerOptions탭이 있음 -> Serve Module Publishing 체크박스를 체크
+		-> 체크를 안하면 file upload / download 경로 지정이 운영체제 상 숨김폴더로 지정
+		
+		2. 포트번호 충동을 방지하기 위해서 포트번호 재설정 -> 작업이 끝나면 반드시 저장해야한다. 
+		
+		
+	4) Dynamic Web Project만들기 [Project Explorer - new] 
+		1. 프로젝트명 작성하기 -> Next 버튼
+		
+		2. defalut output folder 경로 재설정 :
+			src/main/webapp/WEB-INF/classes -> next버튼
+		=> classes : 폴더 안에 컴파일이 끝난 .class파일이 들어감 -> bin폴더의 대체
+		=> 왜 이 경로가 아니면 안될까? webapp 밑에 파일들은 접근이 가능하지만
+		=> 예외로 WEB-INF 밑에는 접근이 불가능함 (보안)
+		
+		3. context root : 애플리케이션만의 고유한 별칭으로 만들어줌(기본값 : 프로젝트 명)
+		재정의해서 쓰는것이 일반적임, 실제로 매우 자주 바뀜
+		=> 하나의 서버로 여러 개의 애플리케이션을 구동할 수 있다.
+		고유한 이름을 통해 애플리케이션에 요청을 보내는 경로로 사용할 수 있다.
+		
+		content Directory : 실제 배포되는 폴더의 최상위 폴더 => 변경X
+		
+		Generate Web.xml deployment descriptor : 기본적으로 체크x
+		-> 현재 애플리케이션의 정보를 담는 파일 => 나는 죽었다 깨어나도 바꿀 일 없다 => 안만들어도 무방 	
+		Finish 버튼 클릭
+			
+	-->
+	
+	<h2> Web을 시작하겠습니다</h2>
+	
+	<h3>*Sevlet</h3>
+	
+	<pre>
+		서블릿이란?
+		
+		자바를 이용해서 웹을 만들기 위해 사용하는 기술
+		웹서비스를 위한 자바 "인터페이스/클래스"
+		
+		- 사용자의 요청을 받아서 처리하고 그에 해당하는 응답데이터를 만들어서
+		  다시 사용자에게 전송해주는 역할(당분간은 컨트롤러로 사용할 예정)
+		  
+		- Java로 동적인 페이지를 구현할 수 있게 해주는 서버 측 프로그램(명세/개념/인터페이스)
+		  서블릿 생명주기 관리를 서블릿 컨테이너가 해준다. = 톰켓
+		
+
+	</pre>
+
+	<a href="http://localhost:8088/first/views/request_get.html">GET방식</a> <br>
+	<a href="views/request_get.html">두번 째 방법</a> <br>
+	
+	<a href="http://localhost:8088/first/views/request_get2.html">실습링크</a><br>
+	
+	<br>
+	<a href="http://localhost:8088/first/views/request_post.html"> POST 방식으로 가야지 </a>
+	<!-- 두가지 요청 방법이 있음
+		1. (절대경로) http://localhost:8088/first/views/request_get.html
+		2. (상대경로) views/request_get.html
+		
+		
+		오늘 수업시간에 활용했던 파일을 참고해서
+		새롭게 html 및 a태그를 만들고
+		사용자에게 form태그와 input요소를 이용해서 값10개 ( 다양한 형태)
+		서블릿을 새로 만들고 콘솔 창에 요청 시 전달 값을 출력해보기
+		
+		
+	 -->
+	
+	
+	
+</body>
+</html>

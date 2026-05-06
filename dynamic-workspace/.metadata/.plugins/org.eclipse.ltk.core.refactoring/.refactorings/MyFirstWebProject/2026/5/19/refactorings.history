@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename resource &apos;MyFirstWebProject/src/main/java/com/kh/first/controller/RequsetGetServlet.java&apos; to &apos;RequestGetServlet.java&apos;" description="Rename resource &apos;RequsetGetServlet.java&apos;" flags="7" id="org.eclipse.ltk.core.refactoring.rename.resource" input="src/main/java/com/kh/first/controller/RequsetGetServlet.java" name="RequestGetServlet.java" stamp="1777876156009" updateReferences="true"/>
+</session>

@@ -1,0 +1,17 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>응답페이지</title>
+</head>
+<body>
+<!-- html에다가 자바코드를 넣자 => JSP 
+	절대 html이 아니고 자바코드다.
+ -->
+ 	<h1>진짜로 내가 위임(배정:DisPatching)받았나?</h1>
+ 	
+ 	
+</body>
+</html>

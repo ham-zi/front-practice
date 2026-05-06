@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://xmlns.jcp.org/xml/ns/javaee" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd" id="WebApp_ID" version="4.0">
+
+
+<!-- 
+	web.xml파일
+	
+	- 웹 애플리케이션의 기본적인 설정을 위해 작성하는 파일
+	- 서버를 동작시켜서 애플리케이션을 구동하면 제일 먼저 읽는 파일
+	
+	
+	
+	
+ -->
+
+
+  <display-name>MyFirstWebProject</display-name>
+  <welcome-file-list>
+  
+  <!-- 
+  	welcome-file : 클라이언트가 WebBrowser를 통해 URL를 입력해서 요청을 보낼 때
+  	가장 먼저 보여지게 되는 메인페이지를 지정하는 태그입니다.
+  	
+  	브라우저가 하는 일
+  	학원사이트로 이동하게되면 -> http://www.kh-academy.co.kr
+  	우리 서버로 이동하게된다면 -> http://localhost:8088/first
+  	자동 http://를 붙혀줌
+  	하지만 실제로는 요청이 다르게 감
+  	http://localhost:8088/first/
+  	/가 하나 더 붙음
+  	이 경로 밑에있는 자원들을 찾도록 / 을 붙혀줌
+  	
+  	welcome-file은 그 자원이 무엇인지 알려주는 요소임
+  	
+  	위에 있을 수록 우선순위가 높음
+  	
+  	
+  	http://구동중인 톰캣서버의 ip주소:포트번호/contextRoot/
+  	=> 각자 본인 컴퓨터에 구축해놓은 서버의 IP주소를 입력 : 192.168.xxx.xxx => 127.0.0.1 => localhost
+  	=> 서버의 포트번호 : xxxx(80으로 지정할 경우 생략이 가능)
+  	=> 서버내의 구동중인 contextRoot : first
+  	
+  	단, welcome-file-list에 존재하는 파일명은 반드시 프로젝트 생성 시 지정했던
+  	ContentDirectory(scr/java/webapp)폴더에 위치 해야 한다.
+  	
+   -->
+  
+    <welcome-file>index.html</welcome-file>
+    <welcome-file>index.jsp</welcome-file>
+    <welcome-file>index.htm</welcome-file>
+    <welcome-file>default.html</welcome-file>
+    <welcome-file>default.jsp</welcome-file>
+    <welcome-file>default.htm</welcome-file>
+  </welcome-file-list>
+</web-app>

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>HTML!</title>
+</head>
+<body>
+
+	<h1>월컴파일</h1>
+	
+	<!--  
+	1) 새 워크스페이스 생성 후 이클립스로 열기
+	
+	2) 작업 환경 구성
+		1. 보여질 화면 요소를 구성
+		
+		2. 서버 실행 환경 구성 [window - preferences - (Server - Runtime Environments)]
+		   이클립스 상에서 서버를 실행할 수 있도록 실행 환경을 연동하는 과정
+		   Add 버튼 클릯 -> 설치한 ApacheTomcat과 동일한 버전을 선택 -> next버튼
+		   -> Browse버튼 클릭 -> 설치한 톰켓 폴더(bin폴더가 보여야함) -> finish버튼 클릭
+		
+	3-1) 서버 생성하기(Servers)
+		1. [Server] - [new] - [server]
+		
+		2. [2-2작업을 했다면 기본적으로 Runtime이 잡혀있음]
+		
+		3. finish버튼 클릭
+	
+	3-2) 서버 세팅하기(만들어진 서버를 더블 클릭)
+		1. 왼쪽하단에 ServerOptions탭이 있음 -> Serve Module Publishing 체크박스를 체크
+		-> 체크를 안하면 file upload / download 경로 지정이 운영체제 상 숨김폴더로 지정
+		
+		2. 포트번호 충동을 방지하기 위해서 포트번호 재설정 -> 작업이 끝나면 반드시 저장해야한다. 
+		
+		
+	4) Dynamic Web Project만들기 [Project Explorer - new] 
+		1. 프로젝트명 작성하기 -> Next 버튼
+		
+		2. defalut output folder 경로 재설정 :
+			src/main/webapp/WEB-INF/classes
+		=> classes : 폴더 안에 컴파일이 끝난 .class파일이 들어감 -> bin폴더의 대체
+		=> 왜 이 경로가 아니면 안될까? webapp 밑에 파일들은 접근이 가능하지만
+		=> 예외로 WEB-INF 밑에는 접근이 불가능함 (보안)
+	-->
+	
+</body>
+</html>

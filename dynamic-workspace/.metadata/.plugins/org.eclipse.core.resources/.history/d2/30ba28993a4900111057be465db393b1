@@ -1,0 +1,21 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<%@ include file="footer.jsp"%>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<pre>
+	
+	
+	<%for(int i= 0; i < 10 ; i++){ %>
+		연습 성공?~!<%=i%>트
+	<%} %>
+	
+	
+	</pre>
+</body>
+</html>

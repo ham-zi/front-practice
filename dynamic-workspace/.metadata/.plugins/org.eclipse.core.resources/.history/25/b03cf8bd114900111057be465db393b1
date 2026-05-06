@@ -1,0 +1,71 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<%@ page import="com.kh.el.model.dto.Person" %>
+    
+    
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>초강력 JSP</title>
+</head>
+<body>
+<!-- 외부에서 접근할 수 없게 WEB-INF에 넣는다. -->
+	<h1> EL구문 배워보기... 정말 좋아요...</h1>
+	
+	<%--  
+	<%
+		String classRoom = (String)request.getAttribute("classRoom");
+		Person student = (Person)request.getAttribute("student");
+	
+		String academy = (String)session.getAttribute("academy");
+		Person lecture = (Person)session.getAttribute("lecture");
+		
+		
+	%>
+		JSP 주석이 따로 있다.
+		
+		<!--는 단순히 문자열일뿐 주석이 아니다. 
+			  
+
+	<p>
+		학원명 : <%= academy %> <br>
+		강의장 : <%= academy %> <br> 
+		강사정보 : <%= lecture.getName() %>, <%= lecture.getAge() %>, <%= lecture.getAddress() %> <br><br>
+		
+		수강생의 정보
+		<!--통신은 흐름을 생각해야함,
+			클라이언트의 요청을 하면서 흐름이 시작됨
+			
+			
+		 -->
+		<ul>
+			<li> 이름 : <%=student.getName() %></li>
+			<li> 나이 : <%=student.getAge() %></li>
+			<li> 주소 : <%=student.getAddress() %></li>
+		</ul>
+	</p>
+	
+	자바와 자바스크립트는 연관이 전혀없다.
+		
+	
+	 --%>
+	 
+	 <hr>
+	 
+	 <h3> EL 구문을 이용해서 request / session에 담긴 값들을 출력</h3>
+	 
+	 <p>
+	 	학원명 : ${ academy } <br>
+	 	강의장 : ${ classRoom } <br>
+	 	강사정보 : ${ lecture.name } , ${lecture.age}, ${ lecture.address } <br>
+	 	
+	 	
+	 </p>
+	 
+
+
+	
+	
+</body>
+</html>

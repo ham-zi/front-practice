@@ -1,0 +1,17 @@
+package com.kh.market.member.model.service;
+
+import org.apache.ibatis.session.SqlSession;
+
+import com.kh.market.common.Template;
+import com.kh.market.member.model.dao.MemberDao;
+import com.kh.market.member.model.dto.MemberDto;
+
+public class MemberService {
+	private MemberDao md = new MemberDao();
+	
+	public int insertMember(MemberDto member) {
+		SqlSession sqlSession = Template.getSqlSession();
+		int result = md.insertMember(sqlSession, member);
+	}
+	
+}

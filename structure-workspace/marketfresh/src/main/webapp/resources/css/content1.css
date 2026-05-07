@@ -1,0 +1,6 @@
+#content_1 > img {
+  width: 100%; 
+  height: auto;
+  padding-top: 5px;
+  margin-bottom: 50px;
+}

@@ -1,0 +1,90 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>햇살마켓 - 회원가입</title>
+<style>
+    /* 전체적인 정렬 */
+    .enroll-container {
+        width: 400px;
+        margin: 50px auto;
+        padding: 30px;
+        border: 1px solid #ddd;
+        border-radius: 10px;
+        font-family: 'Malgun Gothic', sans-serif;
+    }
+    
+    h2 { color: #1B5E20; text-align: center; }
+    
+    .input-group { margin-bottom: 15px; }
+    
+    .input-group label { display: block; margin-bottom: 5px; font-weight: bold; font-size: 14px; }
+    
+    .input-group input {
+        width: 100%;
+        padding: 10px;
+        box-sizing: border-box; /* 패딩 포함 넓이 계산 */
+        border: 1px solid #ccc;
+        border-radius: 5px;
+    }
+
+    /* 가입하기 버튼 */
+    .submit-btn {
+        width: 100%;
+        padding: 12px;
+        background-color: #1B5E20; /* 딥 그린 */
+        color: white;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        font-size: 16px;
+        font-weight: bold;
+    }
+
+    .submit-btn:hover { background-color: #2E7D32; }
+</style>
+</head>
+<body>
+
+    <div class="enroll-container">
+        <h2>회원가입</h2>
+        <form action="http://www.localhost:8088/market/insertMember.do" method="post">
+            
+            <div class="input-group">
+                <label>아이디</label>
+                <input type="text" name="userId" placeholder="30자 이내" required>
+            </div>
+
+            <div class="input-group">
+                <label>비밀번호</label>
+                <input type="password" name="userPwd" placeholder="30자 이내" required>
+            </div>
+
+            <div class="input-group">
+                <label>이름</label>
+                <input type="text" name="userName" required>
+            </div>
+
+            <div class="input-group">
+                <label>주소</label>
+                <input type="text" name="address" placeholder="배송받을 주소" required>
+            </div>
+
+            <div class="input-group">
+                <label>전화번호</label>
+                <input type="tel" name="phoneNumber" placeholder="숫자만 입력 (예: 01012345678)" required>
+            </div>
+
+            <div class="input-group">
+                <label>이메일</label>
+                <input type="email" name="email" placeholder="example@mail.com" required>
+            </div>
+
+            <button type="submit" class="submit-btn">가입하기</button>
+        </form>
+    </div>
+
+</body>
+</html>

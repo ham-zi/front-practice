@@ -1,0 +1,7 @@
+INDEX VERSION 1.134
+C:\workspace\structure-workspace\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\646004234.index
+\marketfresh\src\main\java
+C:\workspace\structure-workspace\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\1266360633.index
+\marketfresh\src\main\java
+C:\workspace\structure-workspace\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\2766109185.index
+\structure\src\main\java

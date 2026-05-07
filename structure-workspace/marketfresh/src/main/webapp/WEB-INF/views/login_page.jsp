@@ -1,0 +1,80 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>햇살마켓 - 로그인</title>
+<style>
+    .login-container {
+        width: 350px;
+        margin: 100px auto;
+        padding: 40px;
+        border: 1px solid #eee;
+        border-radius: 15px;
+        box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+        font-family: 'Malgun Gothic', sans-serif;
+    }
+
+    h2 { color: #1B5E20; text-align: center; margin-bottom: 30px; }
+
+    .input-group { margin-bottom: 20px; }
+
+    .input-group label { display: block; margin-bottom: 8px; font-size: 14px; color: #555; }
+
+    .input-group input {
+        width: 100%;
+        padding: 12px;
+        border: 1px solid #ddd;
+        border-radius: 8px;
+        box-sizing: border-box;
+    }
+
+    .login-btn {
+        width: 100%;
+        padding: 14px;
+        background-color: #1B5E20;
+        color: white;
+        border: none;
+        border-radius: 8px;
+        font-size: 16px;
+        font-weight: bold;
+        cursor: pointer;
+        margin-top: 10px;
+    }
+
+    .login-btn:hover { background-color: #2E7D32; }
+
+    .sub-links {
+        text-align: center;
+        margin-top: 20px;
+        font-size: 13px;
+    }
+
+    .sub-links a { color: #888; text-decoration: none; margin: 0 10px; }
+    .sub-links a:hover { text-decoration: underline; color: #1B5E20; }
+</style>
+</head>
+<body>
+
+    <div class="login-container">
+        <h2>햇살마켓</h2>
+        
+        <form action="http://localhost:8088/market/login.do" method="post">
+            <div class="input-group">
+                <label>아이디</label>
+                <input type="text" name="userId" required placeholder="아이디를 입력하세요">
+            </div>
+
+            <div class="input-group">
+                <label>비밀번호</label>
+                <input type="password" name="userPwd" required placeholder="비밀번호를 입력하세요">
+            </div>
+
+            <button type="submit" class="login-btn">로그인</button>
+        </form>
+
+    </div>
+
+</body>
+</html>

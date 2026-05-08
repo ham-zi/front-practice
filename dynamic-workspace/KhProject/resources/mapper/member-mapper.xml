@@ -43,5 +43,76 @@
   		   AND
   		       STATUS = 'N'
   	</select>
+  	
+  	<sql id="memberInfo">
+		SELECT
+  		       USER_NO userNo
+  		     , USER_ID userId
+  		     , USER_NAME userName
+  		     , EMAIL 
+  		     , ENROLL_DATE enrollDate
+  		     , MODIFY_DATE modifyDate
+  		     , STATUS
+  		  FROM
+  		       WEB_MEMBER  		
+  	</sql>
+  	
+  	<update id="updateMember" parameterType="map">
+  		UPDATE
+  		       WEB_MEMBER
+  		   SET
+  		       USER_NAME = #{userName}
+  		     , EMAIL = #{email}
+  		     , MODIFY_DATE = SYSDATE
+  		 WHERE
+  		       USER_NO = #{userNo}
+  		   AND 
+  		       STATUS = 'N'
+  	</update>
+  	
+  	<select id="selectMember" resultType="member" parameterType="Long">
+ 		SELECT
+ 		       USER_NO userNo
+ 		     , USER_ID userId
+ 		     , USER_NAME userName
+ 		     , EMAIL 
+ 		     , ENROLL_DATE enrollDate
+ 		     , MODIFY_DATE modifyDate
+ 		     , STATUS
+ 		  FROM
+ 		       WEB_MEMBER
+ 		 WHERE
+ 		       USER_NO = ${userNo}
+ 		   AND
+ 		       STATUS = 'N'
+  	</select>
+  												<!-- 풀클래스명 -->
+  	<update id="updatePassword" parameterType="com.kh.web.member.model.dto.UpdatePwdDto">
+  		UPDATE
+  			   WEB_MEMBER
+  		   SET
+  		       USER_PWD = #{ updatePwd }
+  		 WHERE
+  		       USER_PWD = #{ userPwd }
+  		   AND
+  		       USER_NO = #{ userNo }
+  		   AND
+  		       STATUS = 'N'
+  	</update>
+  	
+  	<delete id="deleteMember" parameterType="member">
+  		UPDATE
+  		       WEB_MEMBER
+  		   SET
+  		       STATUS = 'Y'
+  		     , MODIFY_DATE = SYSDATE
+  		 WHERE
+  		       USER_NO = #{ userNo }
+  		   AND
+  		       USER_PWD = #{ userPwd }
+  		   AND
+  		       STATUS = 'N'
+  	</delete>
+  	
   
   </mapper>

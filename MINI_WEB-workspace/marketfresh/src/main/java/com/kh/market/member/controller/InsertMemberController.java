@@ -1,0 +1,48 @@
+package com.kh.market.member.controller;
+
+import java.io.IOException;
+import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+import com.kh.market.member.model.dto.MemberDto;
+import com.kh.market.member.model.service.MemberService;
+
+@WebServlet("/insertMember.do")
+public class InsertMemberController extends HttpServlet {
+	private static final long serialVersionUID = 1L;
+	private MemberService ms = new MemberService();
+    public InsertMemberController() {
+        super();
+    }
+
+
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		request.setCharacterEncoding("UTF-8");
+		
+		String userId = request.getParameter("userId");
+		String userPwd = request.getParameter("userPwd");
+		String userName = request.getParameter("userName");
+		String address = request.getParameter("address");
+		String phoneNumber = request.getParameter("phoneNumber");
+		String email = request.getParameter("email");
+		
+		MemberDto member = new MemberDto(userId, userPwd, userName, address, phoneNumber, email);
+		int result = ms.insertMember(member);
+		if(result >0) {
+			response.sendRedirect("http://www.localhost:8088/market");
+		} else {
+			request.setAttribute("message", "회원가입 실패");
+			request.getRequestDispatcher("/WEB-INF/views/fail_page.jsp").forward(request, response);	
+
+		}
+	}
+
+
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		doGet(request, response);
+	}
+
+}

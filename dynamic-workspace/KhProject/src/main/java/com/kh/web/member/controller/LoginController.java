@@ -60,6 +60,14 @@ public class LoginController extends HttpServlet {
 			response.sendRedirect("/kh");
 			// 단점 사용자가 많을수록 부하가 커진다.
 			// 장점 서버측에 데이터를 갖고 있기 때문에 보안상 안전하다
+			
+			
+			// 서버입장에서 똑같은 userInfo인데 어떻게 구분하는가?
+			// 쿠키라는 개념.
+			// 톰켓이 임의의 JSESSIONID라는 토큰값을 정해준다
+			// 이것으로 사용자를 식별
+			// 요청보낼 때 기준으로 쿠키를 줌.
+			
 		} else {
 			request.setAttribute("message", "로그인에 실패했습니다.");
 			request.getRequestDispatcher("/WEB-INF/views/common/fail_page.jsp").forward(request, response);

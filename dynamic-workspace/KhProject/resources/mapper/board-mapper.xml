@@ -12,6 +12,15 @@
 		 WHERE
 		       STATUS = 'N'
 	</select>
+	
+	<select id="selectNoticeCount" resultType="_int">
+		SELECT
+		       COUNT(*)
+		  FROM
+		       WEB_NOTICE
+		 WHERE
+		       STATUS = 'N'
+	</select>
   
   
   	<select id="selectBoardList"
@@ -35,7 +44,26 @@
   		OFFSET #{offset} ROWS FETCH NEXT #{boardLimit} ROWS ONLY
   	</select>
   
-  
+  	<select id="selectNoticeList"
+  			parameterType="com.kh.web.common.model.dto.PageInfo"
+  			resultType="board">
+  		SELECT
+  		       BOARD_NO
+  		     , USER_NAME
+  		     , BOARD_TITLE
+  		     , CREATE_DATE
+  		     , COUNT
+  		  FROM
+  		       WEB_NOTICE N
+  		  JOIN
+  		       WEB_MEMBER USING(USER_NO)
+  		 WHERE
+  		       N.STATUS = 'N'
+  		 ORDER
+  		    BY
+  		       CREATE_DATE DESC
+  		OFFSET #{offset} ROWS FETCH NEXT #{boardLimit} ROWS ONLY
+  	</select>  
   
   
   

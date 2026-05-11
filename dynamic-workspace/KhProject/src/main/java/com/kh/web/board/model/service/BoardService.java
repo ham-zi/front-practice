@@ -8,6 +8,7 @@ import com.kh.web.board.model.dao.BoardDao;
 import com.kh.web.board.model.dto.BoardDto;
 import com.kh.web.common.Template;
 import com.kh.web.common.model.dto.PageInfo;
+import com.kh.web.member.model.dto.MemberDto;
 
 public class BoardService {
 	BoardDao bd = new BoardDao();
@@ -20,6 +21,23 @@ public class BoardService {
 	}
 	
 	public List<BoardDto> selectBoardList(PageInfo pi) {
+		SqlSession sqlSession = Template.getSqlSession();
+		
+		List<BoardDto> boards = bd.selectBoardList(sqlSession, pi);
+		
+		sqlSession.close();
+		
+		return boards;
+	}
+	
+	public int selectNoticeCount() {
+		SqlSession sqlSession = Template.getSqlSession();
+		int result = bd.selectNoticeCount(sqlSession);
+		sqlSession.close();
+		return result;
+	}
+	
+	public List<BoardDto> selectNoticeList(PageInfo pi) {
 		SqlSession sqlSession = Template.getSqlSession();
 		
 		List<BoardDto> boards = bd.selectBoardList(sqlSession, pi);

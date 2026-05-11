@@ -15,7 +15,16 @@ public class BoardDao {
 	}
 	
 	
+	
 	public List<BoardDto> selectBoardList(SqlSession sqlSession, PageInfo pi) {
+		return sqlSession.selectList("boardMapper.selectBoardList", pi);
+ 	}
+	
+	public int selectNoticeCount(SqlSession sqlSession) {
+		return sqlSession.selectOne("boardMapper.selectNoticeCount");
+	}
+	
+	public List<BoardDto> selectNoticeList(SqlSession sqlSession, PageInfo pi) {
 		return sqlSession.selectList("boardMapper.selectBoardList", pi);
  	}
 	

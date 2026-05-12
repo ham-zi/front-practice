@@ -69,7 +69,9 @@ tr:hover{
 			                        ${ board.userName}
 			                        </td>
 			                        <td style="color: #52d6ffcc;">
-			                        ${ board.boardTitle } &nbsp;
+			                        <a href="http://localhost:8088/kh/detail.bo?boardNo=${board.boardNo}">
+			                        ${ board.boardTitle } &nbsp;			                        
+			                        </a>
 			                        </td>
 			                        <td>
 			                        ${ board.createDate }

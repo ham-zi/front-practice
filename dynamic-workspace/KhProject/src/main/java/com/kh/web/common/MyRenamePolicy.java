@@ -43,9 +43,12 @@ public class MyRenamePolicy implements FileRenamePolicy {
 		
 		int randomNum = (int)(Math.random() *900) + 100;
 		
-		String change = "KH_" + currentTime + "_" + randomNum + ext;
+		String changeName = "KH_" + currentTime + "_" + randomNum + ext;
 		
-		return null;
+		// 기존 파일명을 바꾼 이름으로 적용시켜서 반환
+		
+		
+		return new File(origin.getParent(), changeName);
 	}
 
 }

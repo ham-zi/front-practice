@@ -39,7 +39,11 @@ tr:hover{
          <div class="col-lg-10">
             <div class="panel-body">
             <h2 class="page-header"><span style="color: #52b1ff;">KH</span> 공지 사항
-               <a href="http://localhost:8088/kh/insertform.do" class="btn float-right" style="background-color: #52b1ff; margin-top: 0; height: 40px; color: white; border: 0px solid #f78f24; opacity: 0.8">글쓰기</a>
+            
+               	<c:if test="${ userInfo.userId eq 'admin' }">
+               		<a href="http://localhost:8088/kh/insert_page.no" class="btn float-right" style="background-color: #52b1ff; margin-top: 0; height: 40px; color: white; border: 0px solid #f78f24; opacity: 0.8">글쓰기</a>
+            	</c:if>
+            
             </h2>
                <table class="table table-bordered table-hover">
                   <thead>
@@ -69,7 +73,9 @@ tr:hover{
 			                        ${ board.userName}
 			                        </td>
 			                        <td style="color: #52d6ffcc;">
+			                        <a href="http://localhost:8088/kh/detail.no?boardNo=${ board.boardNo }">
 			                        ${ board.boardTitle } &nbsp;
+			                        </a>
 			                        </td>
 			                        <td>
 			                        ${ board.createDate }
@@ -103,14 +109,14 @@ tr:hover{
 			   <c:if test="${ pi.currentPage ne 1 }">
                 <button 
                 class="btn btn-outline-primary" style="color:#52b1ff;"
-                onclick="location.href='http://localhost:8088/kh/boards.do?page=${pi.currentPage-1}'">이전</button>
+                onclick="location.href='http://localhost:8088/kh/notice.do?page=${pi.currentPage-1}'">이전</button>
 			   </c:if>        	
         	
         
         	   <c:forEach var="i" begin="${ pi.startPage }" end="${ pi.endPage }">
                 <button 
                 class="btn btn-outline-primary" style="color:#52b1ff;"
-                onclick="location.href='http://localhost:8088/kh/boards.do?page=${i}'">${ i }</button>
+                onclick="location.href='http://localhost:8088/kh/notice.do?page=${i}'">${ i }</button>
         	   </c:forEach>
 
                
@@ -118,13 +124,13 @@ tr:hover{
 			   <c:if test="${ pi.currentPage ne pi.maxPage }">
                 <button 
                 class="btn btn-outline-primary" style="color:#52b1ff;"
-                onclick="location.href='http://localhost:8088/kh/boards.do?page=${pi.currentPage+1}'">다음</button>
+                onclick="location.href='http://localhost:8088/kh/notice.do?page=${pi.currentPage+1}'">다음</button>
 			   </c:if>
 
 			    <c:if test="${ pi.endPage ne pi.maxPage }">
                 <button 
                 class="btn btn-outline-primary" style="color:#52b1ff;"
-                onclick="location.href='http://localhost:8088/kh/boards.do?page=${pi.endPage+1}'">다음 페이지</button>	
+                onclick="location.href='http://localhost:8088/kh/notice.do?page=${pi.endPage+1}'">다음 페이지</button>	
 			    </c:if>                
         	
         </div>

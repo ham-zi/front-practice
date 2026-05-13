@@ -3,63 +3,105 @@
   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
   <mapper namespace="memberMapper">
+  	<sql id="selectMember">
+  		SELECT
+  		       MEMBER_NO
+  		     , MEMBER_ID
+  		     , MEMBER_NAME
+  		     , EMAIL
+  		     , PHONE_NUMBER
+  		     , ADDRESS
+  		     , ENROLL_DATE
+  		     , MODIFY_DATE
+  		     , STATUS
+  		  FROM
+  		       MARKET_MEMBER
+  	</sql>
+  	<select id="availableMemberId" parameterType="string" resultType="member">
+  		<include refid="selectMember"/>
+  		WHERE
+  		      MEMBER_ID = #{memberId}
+  		  AND
+  		      STATUS = 'N'
+  	</select>
   	
-  	<insert id="insertMember" parameterType="member">
+  	<select id="login" parameterType="member" resultType="member">
+  		<include refid="selectMember"/>
+  		WHERE
+  			  MEMBER_ID = #{memberId}
+  		  AND
+  		      MEMBER_PWD = #{memberPwd}
+  		  AND
+  		      STATUS = 'N'
+  	</select>
+  
+  	<select id="findMemberByNo" parameterType="Long" resultType="member">
+		<include refid="selectMember"/>
+		WHERE
+		      MEMBER_NO = #{memberNo}
+		  AND
+  		      STATUS = 'N'
+  	</select>
+  
+  	<insert id="createMember" parameterType="member">
   		INSERT
   		  INTO
   		       MARKET_MEMBER
+  		VALUES
   		       (
-  		       USER_NO
-  		     , USER_ID
-  		     , USER_PWD
-  		     , USER_NAME
-  		     , ADDRESS
-  		     , PHONE_NUMBER
-  		     , EMAIL
+  		       SEQ_MEMBER_NO.NEXTVAL
+  		     , #{memberId}
+  		     , #{memberPwd}
+  		     , #{memberName}
+  		     , #{email}
+  		     , #{phoneNumber}
+  		     , #{address}
+  		     , SYSDATE
+  		     , SYSDATE
+  		     , 'N'
   		       )
-  	    VALUES
-  	           (
-  	           SEQ_USER_NO.NEXTVAL
-  	         , #{userId}
-  	         , #{userPwd}
-  	         , #{userName}
-  	         , #{address}
-  	         , #{phoneNumber}
-  	         , #{email}
-  	           )
   	</insert>
   	
-  	<sql id="selectInfo">
-  		SELECT
-  	  		   USER_NO userNo
-  		     , USER_ID userId
-  		     , USER_NAME userName
-  		     , ADDRESS
-  		     , PHONE_NUMBER phoneNumber
-  		     , EMAIL 
-  		     , ENROLL_DATE enrollDate
-  		     , MODIFY_DATE modifyDate
-  		     , STATUS
-  		 FROM 
+  	
+  	<update id="updateMember" parameterType="member">
+  		UPDATE
   		       MARKET_MEMBER
-  	</sql>
-  	
-  	<select id="login" resultType="member" parameterType="member">
-  		<include refid="selectInfo"/>
+  		   SET
+  		       EMAIL = #{email}
+  		     , PHONE_NUMBER = #{phoneNumber}
+  		     , ADDRESS = #{address}
+  		     , MODIFY_DATE = SYSDATE
   		 WHERE
-  		       USER_ID = #{userId}
-  		   AND
-  		       USER_PWD = #{userPwd}
+  		       MEMBER_NO = #{memberNo}
   		   AND
   		       STATUS = 'N'
-  	</select>
+  	</update>
   	
-  	<select id="selectMyInfo" resultType="member" parameterType="Long">
-  		<include refid="selectInfo"/>
+  	<update id="updatePwd" parameterType="pwd">
+  		UPDATE
+  		       MARKET_MEMBER
+  		   SET
+  		       MEMBER_PWD = #{changePwd}
+  		     , MODIFY_DATE = SYSDATE
   		 WHERE
-  		       USER_NO = #{userNo}
+  		       MEMBER_NO = #{memberNo}
+  		   AND
+  		       MEMBER_PWD = #{currentPwd}
+  		   AND
+  		       STATUS = 'N'  
+  	</update>
+  	
+  	<update id="softDeleteMember" parameterType="member">
+  		UPDATE
+  		       MARKET_MEMBER
+  		   SET
+  		       STATUS = 'Y'
+  		 WHERE
+  		       MEMBER_NO = #{memberNo}
+  		   AND
+  		       MEMBER_PWD = #{memberPwd}
   		   AND
   		       STATUS = 'N'
-  	</select>
-  
+  	</update>
+  	
   </mapper>

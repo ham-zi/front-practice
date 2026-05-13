@@ -21,6 +21,10 @@ tr:hover{
 	cursor : pointer;
 }
 
+#btn-color${pi.currentPage}{
+	background-color : red;
+}
+
 </style>
 
 </head>
@@ -93,7 +97,6 @@ tr:hover{
                <div id="search-area" class="form-group">
 				<form action="" method="get">
 					<select name="condition" class="form-control">
-						<option value="writer">작성자</option>
 						<option value="content">내용</option>
 						<option value="title">제목</option>
 					</select>
@@ -115,6 +118,7 @@ tr:hover{
         
         	   <c:forEach var="i" begin="${ pi.startPage }" end="${ pi.endPage }">
                 <button 
+                id="btn-color${i}"
                 class="btn btn-outline-primary" style="color:#52b1ff;"
                 onclick="location.href='http://localhost:8088/kh/notice.do?page=${i}'">${ i }</button>
         	   </c:forEach>

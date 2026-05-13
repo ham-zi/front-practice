@@ -1,0 +1,59 @@
+	#wrap {
+		display : flex;
+		flex-direction: column;
+		width : 1280px;
+		height : 800px;
+	}
+	
+	header, nav, main, footer{
+		border : 1px solid gray;
+	}
+	
+	header{
+		flex : 2;
+		height : 100%;
+	}
+	
+	nav {
+		flex : 0.5;
+		height : 100%;		
+	}
+	
+	main {
+		flex : 5;
+		height : 100%;		
+	}
+	
+	footer {
+		flex : 1;
+		height : 100%;		
+	}
+	
+	a {
+		color : black;
+		font-weight : 700;
+		font-style : none;
+	}
+	
+	
+	
+	
+	#header{
+		display : flex;
+	}
+	
+	#home {
+		flex : 1;
+	}
+	
+	#HelloWorld {
+		flex : 8;
+	}
+
+	#HelloWorld > h1{
+		text-align : center;
+	}
+	
+	#utilHeader {
+		flex : 1;
+	}

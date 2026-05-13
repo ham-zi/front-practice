@@ -47,7 +47,7 @@
 		          >목록</a>&nbsp;&nbsp;
 		          
 		         
-		          	  <c:if test="${ board.userNo eq 1 }">
+		          	  <c:if test="${ userInfo.userId eq 'admin' }">
 			          <a 
 			            class="btn" 
 			            href=""

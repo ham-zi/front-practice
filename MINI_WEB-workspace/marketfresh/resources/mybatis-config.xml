@@ -12,6 +12,7 @@
  
  <typeAliases>
  	<typeAlias type="com.kh.market.member.model.dto.MemberDto" alias="member"/>
+ 	<typeAlias type="com.kh.market.member.model.dto.PasswordDto" alias="pwd"/>
  </typeAliases>
  
  <environments default="development">
@@ -32,7 +33,6 @@
  
  <mappers>
  	<mapper resource="/mapper/member-mapper.xml"/>
- 
  </mappers>
  
  </configuration>

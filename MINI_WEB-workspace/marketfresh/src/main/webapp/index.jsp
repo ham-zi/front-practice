@@ -1,261 +1,163 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-    
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ko">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=, initial-scale=1.0">
-    <title>화면 구조 잡기</title>
-
-    <style>
-        #wrap, header, nav, main, footer {
-            box-sizing: border-box;
-
-
-        }
-        #wrap{
-            width : 1000px;
-            height :1200px;
-;
-            margin : auto;
-            display : flex;
-            flex-direction: column;
-        }
-
-        header {
-            flex : 1.5;
-            display : flex;
-            margin-bottom: 15px;
-        }
-        nav {
-            flex : 0.5;
-        }
-        main {
-            flex : 12;
-            display : flex;
-            flex-direction: column;
-        }
-
-        main > div {
-        }
-
-        footer {
-            flex : 2;
-        }
-
-        #header_1{
-            flex : 2;
-            align-items: center;
-    		justify-content: center;
-        }
-
-        #header_2{
-            flex : 6;
-        }
-        #header_3{
-            flex : 2;
-        }
-        
-        #content_1{
-            flex : 2;
-        }
-        
-        #content_2{
-            flex : 2;
-        }
-        
-        #content_3{
-            flex : 2;
-        }
-    </style>
-
-    <link rel="stylesheet" href="/market/resources/css/footer.css">
-    <link rel="stylesheet" href="/market/resources/css/searchform.css">
-    <link rel="stylesheet" href="/market/resources/css/logo.css">
-    <link rel="stylesheet" href="/market/resources/css/headerutil.css">
-    <link rel="stylesheet" href="/market/resources/css/navbar.css">
-    <link rel="stylesheet" href="/market/resources/css/content1.css">
-    <link rel="styleSheet" href="/market/resources/css/main2.css">
-    <link rel="styleSheet" href="/market/resources/css/main3.css">
-
-
+    <title>농산물 마켓 - 프레시 푸드</title>
+    <link rel="stylesheet" href="resources/css/welcome.css">
 </head>
 <body>
 
-    <div id="wrap">
-        <header>
-            <div id="header_1">
-            	<div id="logo">
-                	<a href="#" id="logo_1">마켓<span id="logo_2">프레쉬</span></a>
-            	</div>            
+    <!-- 헤더 영역 -->
+    <header>
+        <div class="container header-content">
+            <div class="logo">
+                <h1>FRESH MARKET</h1>
             </div>
-
-            <div id="header_2">
-                <form action="search" method="get" id="search_form">
-                    <div id="search_text">
-                        <input type="text" name="query" placeholder="검색어를 입력">
-                    </div>
-                    <div id="search_btn">
-                        <button>검색하기</button>
-                    </div>
+            
+            <div class="search-bar">
+                <form action="" method="">
+                    <input type="text" name="" placeholder="신선한 농산물을 검색해보세요">
+                    <button type="submit">🔍</button>
                 </form>
             </div>
 
-            <div id="header_3">
-                <div id="util">
-                	
-                	<c:choose>
-					    <c:when test="${empty userInfo}">
-		                	<form method="post" action="http://localhost:8088/market/login_page.do">
-		                    	<button type="submit">로그인</button>
-		                	</form>
-		                	<form method="post" action="http://localhost:8088/market/enroll.do">
+            <div class="header-util">
+                <!-- 미로그인 상태 -->
+                <div class="auth-guest">
+					<c:choose>
+						<c:when test="${ userInfo eq null }">
+		                    <form method="get" action="http://localhost:8088/market/enroll.do">
 		                    	<button type="submit">회원가입</button>
-	           			    </form>
-					    </c:when>        	
-	           			<c:otherwise>
-		                	<form method="post" action="">
-		                    	<button type="submit">로그아웃</button>
-		                	</form>
-		                	<form method="post" action="http://localhost:8088/market/myInfo.do">
-		                    	<button type="submit">내정보</button>
-		                	</form>
-	           			</c:otherwise>
-                	</c:choose>
-                	<form method="" action="">
-                    	<button type="submit">고객센터</button>
-                	</form>
-                	
-                	
-                </div>
+		                    </form>
+		                    <form method="get" action="http://localhost:8088/market/login_page.do">
+			                    <button type="submit">로그인</button>
+		                    </form>
+		    				<form>
+		                    	<button type="button">고객센터</button>
+		    				</form>
+						</c:when>
+						<c:otherwise>
+			                <form method="get" action="http://localhost:8088/market/logout.do"> 
+			                    <button type="submit">로그아웃</button>
+			                </form>
+			                <form method=get action="http://localhost:8088/market/myInfo_Page.do">    
+			                    <button type="submit">내정보</button>
+			                </form>
+			                <form>
+			                    <button type="button">고객센터</button>
+			                </form>
+						</c:otherwise>	    				
+					</c:choose>
+                </div> 
+
             </div>
-        </header>
-        
-        <nav>
-            <ul id="navbar">
+        </div>
+    </header>
+
+    <!-- 네비게이션 바 -->
+    <nav>
+        <div class="container">
+            <ul class="nav-list">
                 <li><a href="#">인기</a></li>
                 <li><a href="#">제철</a></li>
+                <li><a href="#">지역</a></li>
                 <li><a href="#">과일</a></li>
                 <li><a href="#">채소</a></li>
                 <li><a href="#">축산</a></li>
-                <li><a href="#">양봉</a></li>
             </ul>
-        </nav>
-        
-        <main>
-            <div id="content_1">
-                <img src="/market/resources/image_upfiles/main.jpg" alt="농산물 이미지">
-            </div>
-                    <h3 id="content2_title">실시간 인기 랭킹</h3>
-            <div id="content_2">
-                <div>
-                    <img src="/market/resources/image_upfiles/strawberry.jpg" alt="딸기이미지">
-                    <div>
-                        <p>[종로농원] 황금딸기</p>
-                        <button>구매하기</button>
-                    </div>
-                </div>
-                <div>
-                    <img src="/market/resources/image_upfiles/watermelon.jpg" alt="">
-                    <div>
-                        <p>[종로농원] 꿀수박</p>
-                        <button>구매하기</button>
-                    </div>
-                </div>
-                <div>
-                    <img src="/market/resources/image_upfiles/melon.jpg" alt="">
-                    <div>
-                        <p>[종로농원] 황금메론</p>
-                        <button>구매하기</button>
-                    </div>
-                </div>
-                <div>
-                    <img src="/market/resources/image_upfiles/apple.jpg" alt="">
-                    <div>
-                        <p>[미래농원] 금사과</p>
-                        <button>구매하기</button>
-                    </div>
-                </div>
-                <div>
-                    <img src="/market/resources/image_upfiles/peach.jpg" alt="">
-                    <div>
-                        <p>[미래농원] 복숭아</p>
-                        <button>구매하기</button>
-                    </div>
-                </div>
-            </div>
-                    <h3 id="content2_title">실시간 제철 랭킹</h3>
-            <div id="content_3">
-                <div>
-                    <img src="/market/resources/image_upfiles/peach.jpg" alt="딸기이미지">
-                    <div>
-                        <p>[종로농원] 황금딸기</p>
-                        <button>구매하기</button>
-                    </div>
-                </div>
-                <div>
-                    <img src="/market/resources/image_upfiles/peach.jpg" alt="">
-                    <div>
-                        <p>[종로농원] 꿀수박</p>
-                        <button>구매하기</button>
-                    </div>
-                </div>
-                <div>
-                    <img src="/market/resources/image_upfiles/peach.jpg" alt="">
-                    <div>
-                        <p>[종로농원] 황금메론</p>
-                        <button>구매하기</button>
-                    </div>
-                </div>
-                <div>
-                    <img src="/market/resources/image_upfiles/peach.jpg" alt="">
-                    <div>
-                        <p>[미래농원] 금사과</p>
-                        <button>구매하기</button>
-                    </div>
-                </div>
-                <div>
-                    <img src="/market/resources/image_upfiles/peach.jpg" alt="">
-                    <div>
-                        <p>[미래농원] 복숭아</p>
-                        <button>구매하기</button>
-                    </div>
-                </div>
-            </div>
-        </main>
-        
-        <div id="footer">
-            <ul id="footer_ul">
-                <li>
-                    <a href="#">이용 약관</a>
-                </li>
-                <li>
-                    <a href="#">개인정보처리방침</a>
-                </li>
-                <li>
-                    <a href="#">고객센터 문의</a>
-                </li>
-                <li>
-                    <a href="#">게시 문의</a>
-                </li>
-                <li>
-                    <a href="#">인재채용 문의</a>
-                </li>
-            </ul>
-            <div id="footer_p">
-                <p id="p_1">
-                    햇살마켓 ｜ 대표자 : 이다산 ｜ 책임자 : 이다산 ｜  개인정보관리책임자 : 이다산
+        </div>
+    </nav>
 
-                </p>
-                <p id="p_2">
-                    Copyright ©2026 SunshineMacket Class All Right Reserved
+    <!-- 메인 1: 히어로 배너 (1800px) -->
+    <section class="hero-section">
+        <div class="hero-image">
+            <h2>산지 직송, 가장 신선한 순간</h2>
+        </div>
+    </section>
 
-                </p>
+    <!-- 메인 컨텐츠 (1280px) -->
+    <main class="container">
+        <!-- 메인 2: 인기 상품 -->
+        <section class="product-section">
+            <h3>🔥 실시간 인기 상품</h3>
+            <div class="product-grid">
+                <!-- 상품카드 5개 -->
+                <div class="product-card">
+                    <div class="img-box"></div>
+                    <p class="p-name">유기농 꿀사과 1kg</p>
+                    <p class="p-price">12,500원</p>
+                </div>
+                <div class="product-card">
+                    <div class="img-box"></div>
+                    <p class="p-name">당일수확 아삭 오이고추</p>
+                    <p class="p-price">3,200원</p>
+                </div>
+                <div class="product-card">
+                    <div class="img-box"></div>
+                    <p class="p-name">고소한 무항생제 삼겹살</p>
+                    <p class="p-price">24,000원</p>
+                </div>
+                <div class="product-card">
+                    <div class="img-box"></div>
+                    <p class="p-name">달콤한 고창 수박</p>
+                    <p class="p-price">18,900원</p>
+                </div>
+                <div class="product-card">
+                    <div class="img-box"></div>
+                    <p class="p-name">흙 묻은 신선 당근</p>
+                    <p class="p-price">4,500원</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- 메인 3: 제철 상품 -->
+        <section class="product-section">
+            <h3>🌿 지금이 딱! 제철 상품</h3>
+            <div class="product-grid">
+                <div class="product-card">
+                    <div class="img-box s-bg"></div>
+                    <p class="p-name">봄나물 모음전</p>
+                    <p class="p-price">5,000원</p>
+                </div>
+                <div class="product-card">
+                    <div class="img-box s-bg"></div>
+                    <p class="p-name">성주 꿀참외 2kg</p>
+                    <p class="p-price">15,000원</p>
+                </div>
+                <div class="product-card">
+                    <div class="img-box s-bg"></div>
+                    <p class="p-name">대저 짭짤이 토마토</p>
+                    <p class="p-price">13,200원</p>
+                </div>
+                <div class="product-card">
+                    <div class="img-box s-bg"></div>
+                    <p class="p-name">부드러운 햇감자</p>
+                    <p class="p-price">6,800원</p>
+                </div>
+                <div class="product-card">
+                    <div class="img-box s-bg"></div>
+                    <p class="p-name">달콤 새콤 산딸기</p>
+                    <p class="p-price">9,900원</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- 푸터 -->
+    <footer>
+        <div class="container footer-content">
+            <div class="footer-info">
+                <p>고객행복센터 1234-5678</p>
+                <p>평일 09:00 ~ 18:00 (주말/공휴일 휴무)</p>
+            </div>
+            <div class="footer-copy">
+                <p>&copy; 2026 FRESH MARKET. All rights reserved.</p>
             </div>
         </div>
-    </div>
-    
+    </footer>
+
 </body>
 </html>

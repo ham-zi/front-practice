@@ -11,4 +11,24 @@
 		       RE_BOARD
 	</select>
   	
+  	<select id="selectBoards" resultType="board" parameterType="com.re.board.model.dto.PageDto">
+  		SELECT
+  		       BOARD_NO
+  		     , USER_NAME
+  		     , BOARD_TITLE
+  		     , BOARD_CONTENT
+  		     , VIEW_COUNT
+  		  FROM
+  		       RE_BOARD
+  		  JOIN
+  		       RE_MEMBER USING(USER_NO)
+  		 WHERE
+  		       RE_BOARD.STATUS = 'N'
+  		 ORDER
+  		    BY
+  		       WRITEN_DATE DESC
+   		OFFSET #{offset} ROWS FETCH NEXT #{boardLimit} ROWS ONLY
+ 
+  	</select>
+  	
   </mapper>

@@ -6,8 +6,54 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+
+	<style>
+	
+		table {
+			width : 100%;
+			border-collapse: collapse;
+		}
+	
+		td, tr, th {
+			border : 1px solid black;
+		}
+		
+	</style>
+	
 </head>
 <body>
 	<jsp:include page="/WEB-INF/views/include/header.jsp"/>
+		<table>
+			<thead>
+				<tr>
+					<th>
+						게시글 번호
+					</th>
+					<th>
+						작성자
+					</th>
+					<th>
+						제목
+					</th>
+					<th>
+						조회수
+					</th>
+				</tr>
+			</thead>
+			<tbody>
+				<c:forEach var="board" items="${ boards }">
+					<tr>
+						<td>${ board.boardNo }</td>
+						<td>${ board.userName }</td>
+						<td>${ board.boardTitle }</td>
+						<td>${ board.viewCount }</td>
+					</tr>
+				</c:forEach>
+			</tbody>
+			
+			
+		</table>
+	
+	
 </body>
 </html>

@@ -65,17 +65,17 @@
 		          
 		         
 		          	  <c:if test="${ board.userNo eq userInfo.userNo }">
-			          <a 
-			            class="btn" 
-			            href=""
-			      		style="background-color: orange; height: 40px; color: white; border: 0px solid #388E3C; opacity: 0.8"
-			      		>수정</a>&nbsp;&nbsp;
-			          
-			          <a 
-			            class="btn" 
-			            href="http://localhost:8088/kh/delete.bo?boardNo=${board.boardNo}" 
-			      		style="background-color: red; height: 40px; color: white; border: 0px solid #388E3C; opacity: 0.8"
-			      		>삭제</a>&nbsp;&nbsp;
+				          <a 
+				            class="btn" 
+				            href="http://localhost:8088/kh/update-form.bo?boardNo=${ board.boardNo }"
+				      		style="background-color: orange; height: 40px; color: white; border: 0px solid #388E3C; opacity: 0.8"
+				      		>수정</a>&nbsp;&nbsp;
+				          
+				          <a 
+				            class="btn" 
+				            href="http://localhost:8088/kh/delete.bo?boardNo=${ board.boardNo }" 
+				      		style="background-color: red; height: 40px; color: white; border: 0px solid #388E3C; opacity: 0.8"
+				      		>삭제</a>&nbsp;&nbsp;
 			      	  </c:if>
 		      </div>
 		    </div>

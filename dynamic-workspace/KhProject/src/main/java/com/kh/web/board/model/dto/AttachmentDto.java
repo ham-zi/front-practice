@@ -11,6 +11,9 @@ public class AttachmentDto {
 	private String boardType;
 	private int fileLevel;
 	private Date createDate;
+
+	
+	
 	public AttachmentDto() {
 		super();
 	}

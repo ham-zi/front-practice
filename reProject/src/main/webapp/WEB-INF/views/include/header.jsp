@@ -74,7 +74,7 @@
 	<header>
 		<div id="header">
 			<div id="home">
-				<a href="#">homePage</a>
+				<a href="http://localhost:8088${pageContext.request.contextPath }">homePage</a>
 			</div>
 			<div id="HelloWorld">
 				<h1>HellowWorld!</h1>
@@ -100,7 +100,7 @@
 					</c:otherwise>
 			 	</c:choose>
 				<li>
-					<a href="#">자유게시판</a>
+					<a href="http://localhost:8088${ pageContext.request.contextPath }/boards_page.do?page=1">자유게시판</a>
 				</li>
 				<li>
 					<a href="#">기타</a>

@@ -13,9 +13,19 @@ public class BoardDto {
 	private String status;
 	private String userName;
 	private String userId;
+	private String src;
 	
 	
 	
+	
+	public String getSrc() {
+		return src;
+	}
+
+	public void setSrc(String src) {
+		this.src = src;
+	}
+
 	public String getUserId() {
 		return userId;
 	}
@@ -107,8 +117,10 @@ public class BoardDto {
 	public String toString() {
 		return "BoardDto [boardNo=" + boardNo + ", userNo=" + userNo + ", boardTitle=" + boardTitle + ", boardContent="
 				+ boardContent + ", createDate=" + createDate + ", modifyDate=" + modifyDate + ", count=" + count
-				+ ", status=" + status + ", userName=" + userName + "]";
+				+ ", status=" + status + ", userName=" + userName + ", userId=" + userId + ", src=" + src + "]";
 	}
+
+
 
 	
 

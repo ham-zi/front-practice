@@ -68,5 +68,22 @@ public class BoardDao {
 	public int deleteNotice(SqlSession sqlSession, BoardDto board) {
 		return sqlSession.delete("boardMapper.deleteNotice", board);
 	}
+
+
+	public int updateBoard(SqlSession sqlSession, BoardDto board) {
+		return sqlSession.update("boardMapper.updateBoard", board);
+	}
+	
+	public int updateAttachment(SqlSession sqlSession, AttachmentDto at) {
+		return sqlSession.update("boardMapper.updateAttachment", at);
+	}
+	
+	public int insertImage(SqlSession sqlSession, BoardDto board) {
+		return sqlSession.insert("boardMapper.insertImage",board);
+	}
+	
+	public List<BoardDto> selectImageList(SqlSession sqlSession) {
+		return sqlSession.selectList("boardMapper.selectImageList");
+	}
 	
 }

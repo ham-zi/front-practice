@@ -4,11 +4,13 @@ import java.util.List;
 
 import org.apache.ibatis.session.SqlSession;
 
+import com.kh.web.ajax.model.dto.ReplyDto;
 import com.kh.web.board.model.dao.BoardDao;
 import com.kh.web.board.model.dto.AttachmentDto;
 import com.kh.web.board.model.dto.BoardDto;
 import com.kh.web.board.model.dto.BoardResponse;
 import com.kh.web.common.Template;
+import com.kh.web.common.model.dto.ImageResponse;
 import com.kh.web.common.model.dto.PageInfo;
 import com.kh.web.member.model.dto.MemberDto;
 
@@ -243,6 +245,36 @@ public class BoardService {
 		List<BoardDto> list =bd.selectImageList(sqlSession);
 		sqlSession.close();
 		return list;
+	}
+	
+	public ImageResponse selectImageDetail(Long boardNo) {
+		SqlSession sqlSession = Template.getSqlSession();
+		
+		ImageResponse ir = bd.selectImageDetail(sqlSession, boardNo);
+		sqlSession.close();
+		return ir;
+		
+		
+	}
+	
+	public int insertReply(ReplyDto reply) {
+		SqlSession sqlSession = Template.getSqlSession();
+		int result = bd.insertReply(sqlSession, reply);
+		if(result > 0) {
+			sqlSession.commit();
+		}
+		sqlSession.close();
+		return result;
+	}
+	
+	public List<ReplyDto> selectReply(Long boardNo) {
+		SqlSession sqlSession = Template.getSqlSession();
+		
+		List<ReplyDto> reply = bd.selectReply(sqlSession, boardNo);
+		
+		sqlSession.close();
+		
+		return reply;
 	}
 	
 }

@@ -6,6 +6,10 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
+
+import com.kh.web.board.model.service.BoardService;
+import com.kh.web.common.model.dto.ImageResponse;
 
 
 @WebServlet("/detail.im")
@@ -19,7 +23,22 @@ public class ImageDetailController extends HttpServlet {
 
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-	
+		Long num = Long.parseLong(request.getParameter("boardNo"));
+		
+		ImageResponse ir = new BoardService().selectImageDetail(num);
+		
+		
+		
+		HttpSession session = request.getSession();
+		if (ir != null) {
+			session.setAttribute("alertMsg", "조회글 성공");
+			request.setAttribute("board", ir);
+			request.getRequestDispatcher("/WEB-INF/views/image_board/detail.jsp").forward(request, response);
+		} else {
+			session.setAttribute("message", "조회글 실패");
+			response.sendRedirect(request.getContextPath() + "/fail.do");
+		}
+		
 	}
 
 

@@ -9,16 +9,16 @@ public class PageDto {
 	private int startPage;
 	private int endPage;
 	private int offset;
-	public PageDto(int listCount, int pageLimit, int boardLimit, int currentPage, int startPage, int endPage,
-			int maxPage, int offset) {
+	public PageDto(int listCount, int pageLimit, int boardLimit, int currentPage,
+			int maxPage, int startPage, int endPage, int offset) {
 		super();
 		this.listCount = listCount;
 		this.pageLimit = pageLimit;
 		this.boardLimit = boardLimit;
 		this.currentPage = currentPage;
 		this.startPage = startPage;
-		this.endPage = endPage;
 		this.maxPage = maxPage;
+		this.endPage = endPage;
 		this.offset = offset;
 	}
 	public PageDto() {

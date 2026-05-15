@@ -43,15 +43,19 @@ public class boardsPageController extends HttpServlet {
 		}
 		
 		int offset = (currentPage - 1) * boardLimit;
-		PageDto pageInfo = new PageDto(listCount, pageLimit, boardLimit, currentPage, maxPage , startPage, endPage, offset);
-		
-		List<BoardDto> list =new BoardService().selectBoards(pageInfo);
+		PageDto pi = new PageDto(listCount, pageLimit, boardLimit, currentPage, maxPage , startPage, endPage, offset);
+		System.out.println(startPage);
+		System.out.println(endPage);
+		System.out.println(pi.getStartPage());
+		System.out.println(pi.getEndPage());
+		List<BoardDto> list =new BoardService().selectBoards(pi);
 		
 		if(list.isEmpty()) {
 			session.setAttribute("message", "게시글 조회 실패");
 			response.sendRedirect(request.getContextPath()+"/fail.do");
 		} else {
 			request.setAttribute("boards", list);
+			request.setAttribute("pi", pi);
 			request.getRequestDispatcher("/WEB-INF/views/board/boards_page.jsp").forward(request, response);
 		}
 	}

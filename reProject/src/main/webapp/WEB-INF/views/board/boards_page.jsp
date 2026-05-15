@@ -50,10 +50,16 @@
 					</tr>
 				</c:forEach>
 			</tbody>
-			
-			
 		</table>
-	
-	
+		<c:if test="${ pi.currentPage gt 1 }">
+			<button onclick="location.href='http://localhost:8088/re/boards_page.do?page='${pi.currentPage + 1}">이전</button>
+		</c:if>
+		<c:forEach var="i" begin="${ pi.startPage }" end="${ pi.endPage }">
+			<button onclick="location.href='http://localhost:8088/re/boards_page.do?page=${i}'">${ i }</button>
+		</c:forEach>
+		<c:if test="${ pi.currentPage le pi.maxPage }">
+			<button onclick="location.href='http://localhost:8088/re/boards_page.do?page='${pi.currentPage - 1}">다음</button>
+		</c:if>
+		
 </body>
 </html>

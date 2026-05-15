@@ -43,7 +43,10 @@
 	 	0512 => 공지사항 작성(첨부파일X, 사용자검증), 상세조회, 사겢구현
 	 
 	  -->
-	 
+	  
+	 <a href="insert.notice">노티스 인서트</a>
+	 <hr>
+	 <a href="select.notice">노티스 셀렉트</a>
 	 
 	<jsp:include page="WEB-INF/views/include/header.jsp"/>
 	<jsp:include page="WEB-INF/views/include/footer.jsp"/>
